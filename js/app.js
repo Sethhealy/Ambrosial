@@ -1,5 +1,5 @@
 //  Here I'm Calling my application and what I'm using in the code.
-var app = angular.module("Ambrosial", ['ngRoute', 'xeditable','ui.bootstrap', 'firebase'])
+var app = angular.module("Ambrosial", ['ngRoute', 'ngTouch', 'xeditable','ui.bootstrap', 'firebase'])
     // Here I'm configuring the application with the correct routes.
     app.config(['$routeProvider', function($routeProvider){
         // Here I'm defining the routes the users will be using.
