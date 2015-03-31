@@ -1,0 +1,72 @@
+<!--             <nav class="main-menu secondary-font">
+            <ul> -->
+                <!-- Here is my sidebar nav where only the admin can see signup but everyone can see there name and signout -->
+                <!-- <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
+                <li ng-show="user"> {{user.firstname}} <a href="#/" ng-click="authObj.$unauth()">Signout</a></li>
+            </ul>
+            </nav> -->
+            <div class="wrapper">
+                <div class="Title header-font">
+                <h1> Ambrosial </h1>
+            </div>
+                <div class="background">
+                    <!-- Here is where my accordian is being called and only one at a time. -->
+                    <accordion close-others="oneAtATime">
+                    <accordion-group  heading="Gardin Variety" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" class="background secondary-font">
+                        <!-- Here is my list div where all the tasks are being placed.  -->
+                        <div class="list" ng-class= "{status: task.status == 'Taken'}" ng-repeat="task in tasklist">
+                        <!-- Placing an div here so I can make a box for my priority level -->
+                        <div ng-if="user.usertype !='user'">
+                            <div  class="priority" ng-class= "{red: task.priority == 'High' , yellow: task.priority == 'Medium' , green: task.priority == 'Low'}">
+                            </div>
+                        </div>
+                            <!-- Editing tasks (admin can only edit tasks) and admin can delete.-->
+                            <div ng-if="user.usertype == 'admin'">
+                                <a href="#" class="text" editable-text='task.name' onaftersave="tasklist.$save(task)" maxlength="30"> {{ task.name || "empty"}} </a>
+                            <!-- <p class="items"> {{ tasklist | json }}</p> -->
+                            <div class = "top">
+                                  <div ng-show="!showActions" ng-swipe-left="showActions = true" style="width: 400px;border: 1px solid;padding: 20px;font-size: 17px;">
+                                    </div>
+                                    <div ng-show="showActions" ng-swipe-right="showActions = false" style="width: 420px;border: 1px solid;padding: 20px;font-size: 17px;">
+                                       <span ng-show="var1">Hi, You recieved new email ! Check now.</span>
+                                      <button ng-show="var1" ng-click="delete()" style="height: 44px;width: 109px;border: 0;background-color: red;color: white;font-size: 18px;font-weight: bold;cursor:pointer;">Delete</button>
+                                    </div>
+                                <!-- <button class="btn btn-primary btn-seth header-font" ng-click="tasklist.$remove(task)"> Delete </button> -->
+                            </div>
+                            </div>
+                            <!-- If the usertype is a user they can only take tasks and only until after a task is taken can you delete. -->
+                            <div ng-if="user.usertype == 'employee'">
+                                <p class="usertext"> {{ task.name || "empty" }} </p>
+                                    <div class = "right">
+                                        <button class="btn btn-primary btn-seth" name="update" ng-click="update(task)"> start </button>
+                                        <button class="btn btn-primary btn-seth header-font" ng-click="tasklist.$remove(task)" ng-disabled="task.status != 'Taken'"> complete </button>
+                                    </div>
+                            </div>
+
+                            <div ng-if="user.usertype == 'user'">
+                                <a class="text" maxlength="30"> {{ task.name || "empty"}} </a>
+                            </div>
+                        </div>
+                    </accordion-group>
+                    </accordion>
+                </div>
+                <!--Where the add feature places the Obj-->
+                <div class="addall" ng-if="user.usertype == 'admin'">
+                    <h3 class="task"> Add task </h3>
+                    <form name="taskForm" class="secondary-font" ng-submit="addTask()">
+                        <input class="add" ng-model="$parent.task.name" type="text" maxlength="30" placeholder="New Task" required/>
+                        <div class="gap"></div>
+                        <!-- Here is where my tasks will have priorities given to them -->
+                        <select class="add space" ng-model="$parent.task.priority" required>
+                          <option value ="None" ng-selected="selected" ng-disabled="none">
+                          None</option>
+                          <option value="Low">Low</option>
+                          <option value="Medium">Medium</option>
+                          <option value="High">High</option>
+                        </select>
+                        <div class="gap"></div>
+                        <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
+                        </button>
+                    </form>
+                </div>
+            </div>

@@ -1,0 +1,22 @@
+{
+  "name": "CaterMe",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Sethhealy/sms",
+  "authors": [
+    "seth <shealy@fullsail.edu>"
+  ],
+  "license": "fullsail",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularfire": "~0.9.1",
+    "angular-xeditable": "~0.1.8",
+    "angular-bootstrap": "~0.12.0"
+  }
+}

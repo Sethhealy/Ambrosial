@@ -1,0 +1,33 @@
+{
+  "name": "angularfirestarter",
+  "version": "1.0.0",
+  "author": "Seth Healy",
+  "devDependencies": {
+    "bower": "^1.3.9",
+    "grunt": "^0.4.5",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-wiredep": "^1.9.0"
+  },
+  "description": "firestarter",
+  "main": "gruntfile.js",
+  "dependencies": {
+    "grunt-wiredep": "^1.9.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt": "^0.4.5",
+    "bower": "^1.3.12",
+    "grunt-contrib-connect": "^0.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sethhealy/sms.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sethhealy/sms/issues"
+  },
+  "homepage": "https://github.com/Sethhealy/sms"
+}

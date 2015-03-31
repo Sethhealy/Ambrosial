@@ -1,0 +1,68 @@
+            <div class="Title">
+                <h1> CaterMe </h1>
+            </div>
+            <nav class="main-menu">
+            <ul>
+                <!-- Here is my sidebar nav where only the admin can see signup but everyone can see there name and signout -->
+                <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
+                <li ng-show="user"> {{user.firstname}} <a href="#/" ng-click="authObj.$unauth()">Signout</a></li>
+            </ul>
+            </nav>
+            <div class="col-lg-6">
+                <div class="background">
+                    <!-- Here is where my accordian is being called and only one at a time. -->
+                    <accordion close-others="oneAtATime">
+                    <accordion-group  heading="Gardin Variety" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" class="background">
+                        <!-- Here is my list div where all the tasks are being placed.  -->
+                        <div class="list" ng-class= "{status: task.status == 'Taken'}" ng-repeat="task in tasklist">
+                        <!-- Placing an div here so I can make a box for my priority level -->
+                        <div  class="priority" ng-class= "{red: task.priority == 'High' , yellow: task.priority == 'Medium' , green: task.priority == 'Low'}">
+                        </div>
+                            <!-- Editing tasks (admin can only edit tasks) and admin can delete.-->
+                            <div ng-if="user.usertype == 'admin'">
+                                <a href="#" class="text" editable-text='task.name' onaftersave="tasklist.$save(task)" maxlength="30"> {{ task.name || "empty"}} </a>
+                            <!-- <p class="items"> {{ tasklist | json }}</p> -->
+                            <div class = "top">
+                                <button class="btn btn-primary btn-seth" ng-click="tasklist.$remove(task)"> Delete </button>
+                            </div>
+                            </div>
+                            <!-- If the usertype is a user they can only take tasks and only until after a task is taken can you delete. -->
+                            <div ng-if="user.usertype == 'user'">
+                                <p class="usertext"> {{ task.name || "empty" }} </p>
+                                    <div class = "right">
+                                        <button class="btn btn-primary btn-seth" name="update" ng-click="update(task)"> start </button>
+                                        <button class="btn btn-primary btn-seth" ng-click="tasklist.$remove(task)" ng-disabled="task.status != 'Taken'"> complete </button>
+                                    </div>
+                            </div>
+                        </div>
+                    </accordion-group>
+                    </accordion>
+                </div>
+                <!--Where the add feature places the Obj-->
+                <div ng-if="user.usertype == 'admin'">
+                    <form name="taskForm" ng-submit="addTask()">
+                        <input class="add" ng-model="$parent.task.name" type="text" maxlength="30" placeholder="New Task" required/>
+                        <!-- Here is where my tasks will have priorities given to them -->
+                        <select class="add space" ng-model="$parent.task.priority" required>
+                          <option value ="None" ng-selected="selected" ng-disabled="none">
+                          None</option>
+                          <option value="Low">Low</option>
+                          <option value="Medium">Medium</option>
+                          <option value="High">High</option>
+                        </select>
+                        <button type="submit" class="space btn-seth" ng-disabled="taskForm.$invalid"><p>Enter</p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="legend">
+                        <ul>
+                            <!-- I added this image as a legend to see what the priorities colors meant. -->
+                            <img src="images/priority.svg" alt="Priority list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
