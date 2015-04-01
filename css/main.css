@@ -1,8 +1,8 @@
 body{
     background-color: #00C5CD;
     margin: 0 auto;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 3%;
+    padding-right: 3%;
 }
     /*  this targets the area where we are working */
 .container{
@@ -45,6 +45,7 @@ body{
     height: 90px;
     float:left;
     position: relative;
+
 }
 .red{
     background-image:  url("../images/highpriority.png");
@@ -79,7 +80,7 @@ body{
     color:white;
 }
 .Title{
-    width:300px;
+    width:30%;
     margin-top: 70px;
 }
 li{
@@ -170,4 +171,16 @@ a{
     width:45%;
     float:right;
     margin:0;
+}
+.employeelist{
+    height:20px;
+    width:100%;
+/*    border-bottom: thin dotted #000;
+*/
+}
+.assign{
+    width:100%;
+}
+.sectional{
+    width:100%;
 }

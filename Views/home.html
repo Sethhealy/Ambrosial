@@ -22,17 +22,8 @@
                             </div>
                             <!-- Editing tasks (admin can only edit tasks) and admin can delete.-->
                             <div class="sec2" ng-if="user.usertype == 'admin'">
+                                <div class= "employeelist">
                                 <div class="admintext">
-<!--                                   <p class="editrow text" child-scope>
-                                  <p class="text" ng-hide="editing" maxlength="30">
-                                    {{task.name || "empty"}} <p ng-click="editing = true"><i class="icon-pencil"></i></p>
-                                  </p>
-                                  <p ng-show="editing">
-                                        <input type="text" ng-model="user.first">
-                                        <p ng-click="editing = false"><i class="icon-ok"></i></p>
-                                  </p>
-                                  </p> -->
-
                                 <a href="#" class="text" editable-text='task.name' onaftersave="tasklist.$save(task)" maxlength="30"> {{ task.name || "empty"}} </a>  </div>
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->
                                 <div class = "top">
@@ -41,7 +32,7 @@
                                     </div>
                                 </div>
                                 <!-- <button class="btn btn-primary btn-seth header-font" ng-click="tasklist.$remove(task)"> Delete </button> -->
-
+                            </div>
                             </div>
                             <!-- If the usertype is a user they can only take tasks and only until after a task is taken can you delete. -->
                             <div class="sec3" ng-if="user.usertype == 'employee'">
@@ -73,6 +64,12 @@
                           <option value="Medium">Medium</option>
                           <option value="High">High</option>
                         </select>
+                        <div class="gap"></div>
+                        <select class="sectional">
+                            <option value= "newsection">Add new section></option>
+                        </select>
+                         <div class="gap"></div>
+                        <input class="assign" type="text" placeholder="Employee name"/>
                         <div class="gap"></div>
                         <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
                         </button>
