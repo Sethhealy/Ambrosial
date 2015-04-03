@@ -53,19 +53,34 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
   $scope.groups = [
     {
       title: 'Dynamic Group Header - 1',
-      content: 'Dynamic Group Body - 1'
+      content: 'Dynamic Group Body - 1',
+      no: 1
     },
     {
       title: 'Dynamic Group Header - 2',
-      content: 'Dynamic Group Body - 2'
+      content: 'Dynamic Group Body - 2',
+      no: 1
     }
   ];
 
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+  $scope.addGroup = function(idx, group, e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
-  $scope.addItem = function() {
-    var newItemNo = $scope.items.length + 1;
-    $scope.items.push('Item ' + newItemNo);
+    var newGroup = angular.copy(group);
+    newGroup.no = $scope.groups.length + 1;
+    $scope.groups.splice(idx + 1, 0, newGroup);
+  };
+
+  $scope.removeGroup = function(idx, e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    $scope.groups.splice(idx, 1);
   };
 
   $scope.status = {

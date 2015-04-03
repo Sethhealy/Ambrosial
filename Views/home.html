@@ -12,7 +12,9 @@
                 <div class="background">
                     <!-- Here is where my accordian is being called and only one at a time. -->
                     <accordion close-others="oneAtATime">
-                     <accordion-group  heading="Gardin Variety" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" class="background secondary-font">
+                    <accordion-group heading="new section" ng-repeat="group in groups" class="background secondary-font">
+                    <button class="btn btn-small" ng-click="addGroup($index, group, $event)">+</button>
+                    <button class="btn btn-small" ng-click="removeGroup($index, $event)" onaftersave="tasklist.$save(task)" ng-show="$index">-</button>
                         <!-- Here is my list div where all the tasks are being placed.  -->
                         <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="task in tasklist">
                         <!-- Placing an div here so I can make a box for my priority level -->
