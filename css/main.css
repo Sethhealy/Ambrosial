@@ -69,7 +69,7 @@ body{
 }
 .text{
     width:100%;
-    margin-left: -40px;
+    margin-left: 30px;
     display: inline;
 }
 .row{
@@ -103,7 +103,7 @@ li{
 .top{
     float:right;
     margin-right: 10px;
-    padding-top: 7px;
+    padding-bottom: 45px;
 }
 .background{
     background-color: lightblue;
@@ -167,7 +167,7 @@ a{
 .form-control{
     position:absolute !important;
     top:-6px !important;
-    right:20px !important;
+    right:-40px !important;
     width:45%;
     float:right;
     margin:0;
@@ -183,4 +183,9 @@ a{
 }
 .sectional{
     width:100%;
+}
+
+.center{
+    width:90%;
+    margin-left:30%;
 }

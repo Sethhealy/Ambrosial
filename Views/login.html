@@ -1,21 +1,26 @@
-<div class="container-fluid">
+<div class="container-fluid center">
     <div class="row">
-        <h1 class="header-font"> Ambrosial </h1>
-            <h2 class="header-font">Login</h2>
+        <h1> Ambrosial </h1>
+        </br>
+            <h2>Login</h2>
                 <!-- I gave the form a name so that I can target the form members to make sure they are all used. -->
-                <form class="login secondary-font" name="loginform" ng-submit="login()" novalidate>
+                <form class="login" name="loginform" ng-submit="login()" novalidate>
                     <div class="form-group">
-                        <label class="email" for="email">Email:</label>
+                        <label class="email" for="username">Email:</label>
                         <input type="text" name="email" ng-model="user.email" placeholder="Email"
                         ng-required="true">
-                  </div>
-                    <div class="form-group secondary-font">
+                        <!-- I'm validating the email here to make sure they implement an email. -->
+                        <p ng-show="loginform.email.$invalid">Email is not valid</p>
+                    </div>
+                    <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" name="password" ng-model="user.password" placeholder="password"
                         ng-required="true">
+                        <!-- I'm using validation to check the password. -->
+                        <p ng-show="loginform.password.$invalid">Password is required</p>
                     </div>
                         <!-- If they haven't filled out the form the button will be disabled and unable to click. -->
-                        <button ng-disabled="loginform.$invalid" class="header-font" type="submit" ng-click="loginSubmit()">
+                        <button ng-disabled="loginform.$invalid" type="submit" ng-click="loginSubmit()">
                         Login </button>
                         <!-- Here is where my error message will appear and I use error.message to display the error message. -->
                         <p class="error" ng-show="error">{{error.message}}</p>

@@ -13,9 +13,10 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     // I'm consoling my data to make sure it is working.
     // console.log("my data: ", $scope.tasklist);
 
-      $scope.silly = function(){
-        console.log("THATS AWESOME!");
-      }
+    $scope.addEmployee = function (){
+        sync.$push($scope.employee);
+        $scope.employee = {};
+    };
 
     // Here I'm making a function allowing the admin to create new tasks.
     $scope.addTask = function (){
