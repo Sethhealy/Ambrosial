@@ -12,9 +12,9 @@
                 <div class="background">
                     <!-- Here is where my accordian is being called and only one at a time. -->
                     <accordion close-others="oneAtATime">
-                     <accordion-group  heading="Gardin Variety" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" class="background secondary-font">
+                     <accordion-group  heading="{{section.$id}}" ng-repeat="section in tasklist" class="background secondary-font">
                         <!-- Here is my list div where all the tasks are being placed.  -->
-                        <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="task in tasklist">
+                        <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="($id,task) in section">
                         <!-- Placing an div here so I can make a box for my priority level -->
                             <div class="sec1" ng-if="user.usertype !='user'">
                                 <div  class="priority" ng-class= "{red: task.priority == 'High' , yellow: task.priority == 'Medium' , green: task.priority == 'Low'}">
@@ -23,7 +23,7 @@
                             <!-- Editing tasks (admin can only edit tasks) and admin can delete.-->
                             <div class="sec2" ng-if="user.usertype == 'admin'">
                                 <div class= "employeelist">
-                                <a href="#" class="text" editable-text='employee.name' onaftersave="employeelist.$save(task)" maxlength="30"> {{ employee.name || "Add employee"}} </a>
+                                <a href="#" class="text" editable-text='task.employee' onaftersave="tasklist.$save(task)" maxlength="30"> {{ task.employee || "Add employee"}} </a>
                                 <div class="admintext">
                                 <a href="#" class="text" editable-text='task.name' onaftersave="tasklist.$save(task)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->
@@ -55,6 +55,8 @@
                 <div class="addall" ng-if="user.usertype == 'admin'">
                     <h3 class="task"> Add task </h3>
                     <form name="taskForm" class="secondary-font" ng-submit="addTask()">
+                        <input ng-model="$parent.sections" class="add" type="text" placeholder="Section name"/>
+                        <div class="gap"></div>
                         <input class="add" ng-model="$parent.task.name" type="text" maxlength="30" placeholder="New Task" required/>
                         <div class="gap"></div>
                         <!-- Here is where my tasks will have priorities given to them -->
@@ -65,6 +67,8 @@
                           <option value="Medium">Medium</option>
                           <option value="High">High</option>
                         </select>
+                        <div class="gap"></div>
+                        <input class="add" maxlength="30" type="text" ng-model="$parent.task.employee" placeholder="Add Employees"/>
                         <div class="gap"></div>
                         <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
                         </button>

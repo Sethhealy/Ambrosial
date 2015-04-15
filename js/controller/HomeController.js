@@ -20,8 +20,11 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 
     // Here I'm making a function allowing the admin to create new tasks.
     $scope.addTask = function (){
+      console.log("do you know me?",$scope.sections)
+      var taskref = new Firebase(url+"tasks/"+$scope.sections);
+      var tasksync = $firebase(taskref);
         //console.log($scope.task);
-        sync.$push($scope.task);
+        tasksync.$push($scope.task);
         $scope.task = {};
     };
 
