@@ -1,14 +1,19 @@
-<!--             <nav class="main-menu secondary-font">
-            <ul> -->
-                <!-- Here is my sidebar nav where only the admin can see signup but everyone can see there name and signout -->
-                <!-- <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
-                <li ng-show="user"> {{user.firstname}} <a href="#/" ng-click="authObj.$unauth()">Signout</a></li>
-            </ul>
-            </nav> -->
+            <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
+                <a ng-click="nav = true" class="glyphicon bars-outside glyphicon-align-justify" ng-hide="nav"></a>
+                <nav ng-show="nav" class="navbar">
+                <a ng-click="nav = false" class="glyphicon bars-inside glyphicon-align-justify"></a>
+                <ul>
+                    <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
+                    <li ng-show="user"> {{user.firstname}} <br>
+                    <a href="#/" ng-click="authObj.$unauth()">Signout</a></li>
+                </ul>
+                </nav>
             <div class="wrapper">
                 <div class="Title header-font">
                 <h1> Ambrosial </h1>
             </div>
+            </div>
+        </div>
                 <div class="background">
                     <!-- Here is where my accordian is being called and only one at a time. -->
                     <accordion close-others="oneAtATime">
@@ -23,13 +28,13 @@
                             <!-- Editing tasks (admin can only edit tasks) and admin can delete.-->
                             <div class="sec2" ng-if="user.usertype == 'admin'">
                                 <div class= "employeelist">
-                                <a href="#" class="text" editable-text='task.employee' onaftersave="tasklist.$save(task)" maxlength="30"> {{ task.employee || "Add employee"}} </a>
+                                <a href="#" class="text" editable-text='task.employee' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.employee || "Add employee"}} </a>
                                 <div class="admintext">
-                                <a href="#" class="text" editable-text='task.name' onaftersave="tasklist.$save(task)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
+                                <a href="#" class="text" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->
                                 <div class = "top">
                                     <div ng-show="showActions">
-                                      <button ng-click="tasklist.$remove(task)"> Delete </button>
+                                      <button ng-click="section[$parent.$id] = null; tasklist.$save(section)"> Delete </button>
                                     </div>
                                 </div>
                                 <!-- <button class="btn btn-primary btn-seth header-font" ng-click="tasklist.$remove(task)"> Delete </button> -->

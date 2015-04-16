@@ -189,3 +189,37 @@ a{
     width:90%;
     margin-left:30%;
 }
+
+
+
+/* navigation */
+
+.navigation{
+    width:100%;
+}
+.navbar{
+    float:right;
+    position: fixed;
+    top:35px;
+    right:20px;
+}
+.bars-inside{
+    width:30px;
+    font-size: 20px;
+    float:left;
+    position: relative;
+    right:40px;
+    top:30px;
+}
+
+.bars-outside{
+    width:30px;
+    font-size: 20px;
+    float:right;
+    position: relative;
+    right:40px;
+    top:5px;
+}
+
+
+

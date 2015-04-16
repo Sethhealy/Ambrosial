@@ -1,6 +1,6 @@
 .settings {
     height:73px;
-    float:left;
+    float:right;
     background-repeat:no-repeat;
     width:250px;
     margin:0px;
@@ -29,7 +29,7 @@
     position:absolute;
     top:0;
     height:100%;
-    left:0;
+    right:0;
     width:55px;
     overflow:hidden;
     -webkit-transition:width .2s linear;
