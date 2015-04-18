@@ -30,7 +30,7 @@
                                 <div class= "employeelist">
                                 <a href="#" class="text" editable-text='task.employee' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.employee || "Add employee"}} </a>
                                 <div class="admintext">
-                                <a href="#" class="text" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
+                                <a href="#" class="textname" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->
                                 <div class = "top">
                                     <div ng-show="showActions">
@@ -42,15 +42,19 @@
                             </div>
                             <!-- If the usertype is a user they can only take tasks and only until after a task is taken can you delete. -->
                             <div class="sec3" ng-if="user.usertype == 'employee'">
-                                <p class="usertext"> {{ task.name || "empty" }} </p>
+                                <div class= "employeelist">
+                                    <p class="text"> {{ task.employee || "empty" }} </p>
+                                <div class="admintext">
+                                    <p class="textname"> {{ task.name || "empty" }} </p>
+                                </div>
                                     <div class = "right">
-                                        <button class="employeebutton" name="update" ng-click="update(task)"> start </button>
-                                        <button class="employeebutton" ng-click="tasklist.$remove(task)" ng-disabled="task.status != 'Taken'"> complete </button>
+                                        <button class="employeebutton" name="update" ng-click="complete = true"> start </button>
                                     </div>
+                                </div>
                             </div>
 
                             <div ng-if="user.usertype == 'user'">
-                                <a class="text"> {{ task.name || "empty"}} </a>
+                                <a class="usertext"> {{ task.name || "empty"}} </a>
                             </div>
                         </div>
                     </accordion-group>
@@ -79,4 +83,15 @@
                         </button>
                     </form>
                 </div>
+            <div class="list" ng-repeat="($id,task) in section">
+                <div ng-show="complete" class="completed" ng-if="user.usertype !='admin">
+                    <div class="sec3" ng-if="user.usertype == 'employee'">
+                        <p> {{ task.name || "empty" }} </p>
+                            <div class = "right">
+                                <button class="employeebutton" ng-click="complete = false"> Cancel </button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
             </div>
