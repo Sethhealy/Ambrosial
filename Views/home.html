@@ -19,7 +19,7 @@
                     <accordion close-others="oneAtATime">
                      <accordion-group  heading="{{section.$id}}" ng-repeat="section in tasklist" class="background secondary-font">
                         <!-- Here is my list div where all the tasks are being placed.  -->
-                        <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="($id,task) in section">
+                        <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="($id,task) in section" ng-hide="task.status == 'Complete'">
                         <!-- Placing an div here so I can make a box for my priority level -->
                             <div class="sec1" ng-if="user.usertype !='user'">
                                 <div  class="priority" ng-class= "{red: task.priority == 'High' , yellow: task.priority == 'Medium' , green: task.priority == 'Low'}">
@@ -32,7 +32,7 @@
                                 <div class="admintext">
                                 <a href="#" class="textname" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->
-                                <div class = "top">
+                                <div class = "admindelete">
                                     <div ng-show="showActions">
                                       <button ng-click="section[$parent.$id] = null; tasklist.$save(section)"> Delete </button>
                                     </div>
@@ -48,7 +48,8 @@
                                     <p class="textname"> {{ task.name || "empty" }} </p>
                                 </div>
                                     <div class = "right">
-                                        <button class="employeebutton" name="update" ng-click="complete = true"> start </button>
+                                      <button class="employeebutton" name="update" ng-click="update(task); tasklist.$save(section)"> start </button>
+                                      <button class="employeebutton" ng-disabled="$parent.task.status != 'Taken'" ng-click="complete(task); tasklist.$save(section)"> complete </button>
                                     </div>
                                 </div>
                             </div>
@@ -60,6 +61,11 @@
                     </accordion-group>
                     </accordion>
                 </div>
+                                <div class="newlist" ng-repeat="task in tasklist" ng-show="task.status == 'Complete'" ng-if="user.usertype !='admin'">
+                        <div class="sec3">
+                            <p> {{ task.name || "empty" }} </p>
+                        </div>
+                        </div>
                 <!--Where the add feature places the Obj-->
                 <div class="addall" ng-if="user.usertype == 'admin'">
                     <h3 class="task"> Add task </h3>
@@ -83,15 +89,3 @@
                         </button>
                     </form>
                 </div>
-            <div class="list" ng-repeat="($id,task) in section">
-                <div ng-show="complete" class="completed" ng-if="user.usertype !='admin">
-                    <div class="sec3" ng-if="user.usertype == 'employee'">
-                        <p> {{ task.name || "empty" }} </p>
-                            <div class = "right">
-                                <button class="employeebutton" ng-click="complete = false"> Cancel </button>
-                            </div>
-                    </div>
-                </div>
-            </div>
-
-            </div>

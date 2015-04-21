@@ -35,6 +35,10 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         $scope.tasklist.$save(tasklist);
     }
 
+    $scope.complete = function(tasklist){
+        tasklist.status = "Complete";
+        $scope.tasklist.$save(tasklist);
+    }
     // I'm setting up authorization so the user can be called and displayed.
     $scope.authObj = $firebaseAuth(ref);
     $scope.authObj.$onAuth(function(authData){
@@ -66,26 +70,6 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
       no: 1
     }
   ];
-
-  $scope.addGroup = function(idx, group, e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    var newGroup = angular.copy(group);
-    newGroup.no = $scope.groups.length + 1;
-    $scope.groups.splice(idx + 1, 0, newGroup);
-  };
-
-  $scope.removeGroup = function(idx, e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-
-    $scope.groups.splice(idx, 1);
-  };
 
   $scope.status = {
     isFirstOpen: true,
