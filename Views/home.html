@@ -61,11 +61,6 @@
                     </accordion-group>
                     </accordion>
                 </div>
-                                <div class="newlist" ng-repeat="task in tasklist" ng-show="task.status == 'Complete'" ng-if="user.usertype !='admin'">
-                        <div class="sec3">
-                            <p> {{ task.name || "empty" }} </p>
-                        </div>
-                        </div>
                 <!--Where the add feature places the Obj-->
                 <div class="addall" ng-if="user.usertype == 'admin'">
                     <h3 class="task"> Add task </h3>
@@ -89,3 +84,17 @@
                         </button>
                     </form>
                 </div>
+
+                <h3>Completed Tasks</h3>
+
+                <accordion close-others="oneAtATime">
+                     <accordion-group  heading="{{section.$id}}" ng-repeat="section in tasklist" class="background secondary-font">
+
+                        <div class="newlist" ng-repeat="($id,task) in section" ng-show="task.status == 'Complete'" ng-if="user.usertype !='admin'">
+                            <div class="sec3">
+                                <p> {{ task.name || "empty" }} </p>
+                            </div>
+                        </div>
+
+                    </accordion-group>
+                </accordion>
