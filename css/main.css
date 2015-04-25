@@ -29,7 +29,21 @@ body{
 .add{
     width:100%;
     height:100%;
+    text-transform:initial;
 }
+.startbutton{
+    position: absolute;
+    top:15px;
+    right:10px;
+    width:73px;
+}
+
+.completebutton{
+    position: absolute;
+    top:45px;
+    right:10px;
+}
+
     /* This targets all the buttons */
 .btn-seth{
     background-color: grey;
@@ -70,7 +84,7 @@ body{
 .text{
     position: absolute;
     top:15px;
-    left: 150px;
+    left: 100px;
 }
 .row{
     margin-left: 10px;
@@ -164,7 +178,7 @@ a{
     margin-right: 0;
     position: absolute;
     top:50px;
-    left:150px;
+    left:100px;
 }
 
 .form-control{
@@ -193,7 +207,13 @@ a{
     margin-left:30%;
 }
 
+.inital{
+    text-transform:initial;
+}
 
+.capitalize{
+    text-transform:capitalize;
+}
 
 /* navigation */
 

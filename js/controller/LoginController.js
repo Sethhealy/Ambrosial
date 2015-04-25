@@ -9,7 +9,6 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
     // I'm calling my data as an array to be used.
 
     $scope.tasklist=$firebase(new Firebase(url)).$asArray();
-    console.log("my data: ", $scope.tasklist);
     $scope.authObj = $firebaseAuth(new Firebase(url));
 
     // loginSubmit will run the login function on click from the html.
