@@ -10,7 +10,7 @@
                 </nav>
             <div class="wrapper">
                 <div class="Title header-font">
-                <h1 ng-model="title" editable-text='title' onaftersave="title.$save(section)" > Hi, {{title || "Title"}} </h1>
+                <h1 ng-model="title" editable-text='title'  > Hi, {{title || "Title"}} </h1>
             </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                     <accordion close-others="oneAtATime">
                      <accordion-group  heading="{{section.$id}}" is-open="section.$first" ng-repeat="section in tasklist" class="background secondary-font">
                         <!-- Here is my list div where all the tasks are being placed.  -->
-                        <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="(task_id,task) in section" ng-hide="task.status == 'Complete'">
+                        <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="($id,task) in section" ng-hide="task.status == 'Complete'">
                         <!-- Placing an div here so I can make a box for my priority level -->
                             <div class="sec1" ng-if="user.usertype !='user'">
                                 <div  class="priority" ng-class= "{red: task.priority == 'High' , yellow: task.priority == 'Medium' , green: task.priority == 'Low'}">
@@ -34,7 +34,7 @@
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->
                                 <div class = "admindelete">
                                     <div ng-show="showActions">
-                                      <button ng-click="section[task_id] = null; tasklist.$save(section)"> Delete </button>
+                                      <button ng-click="section[$parent.$id] = null; tasklist.$save(section)"> Delete </button>
                                     </div>
                                 </div>
                                 <!-- <button class="btn btn-primary btn-seth header-font" ng-click="tasklist.$remove(task)"> Delete </button> -->
@@ -48,7 +48,7 @@
                                     <p class="textname"> {{ task.name || "empty" }} </p>
                                 </div>
                                     <div class = "right">
-                                      <button class="startbutton" name="update" ng-click="update(task_id); tasklist.$save(task_id)" ng-hide="task.status == 'Taken'"> Start </button>
+                                      <button class="startbutton" name="update" ng-click="update(task); tasklist.$save(section)" ng-hide="task.status == 'Taken'"> Start </button>
 
                                       <button class="startbutton" ng-click="stop(task); tasklist.$save(section)" ng-hide="task.status != 'Taken'"> Stop </button>
 
