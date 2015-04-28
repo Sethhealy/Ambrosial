@@ -50,7 +50,7 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
                     usertype: "employee"}
             );
           // If everyone was correct the user will be created and the Admin will be placed on the home page.
-          $location.path('/login');
+          $location.path('/signup');
         }).catch(function(error) {
             $scope.error = error;
             // console logged the error to find out what the error message was.

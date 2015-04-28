@@ -12,6 +12,8 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 
     // I'm consoling my data to make sure it is working.
     // console.log("my data: ", $scope.tasklist);
+    var time = new Date();
+
 
     $scope.addEmployee = function (){
         sync.$push($scope.employee);
@@ -22,7 +24,9 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     $scope.addTask = function (){
       var taskref = new Firebase(url+"tasks/"+$scope.sections);
       var tasksync = $firebase(taskref);
-        //console.log($scope.task);
+        $scope.task.time = {};
+        $scope.task.time.start = new Date().valueOf();
+        console.log($scope.task);
         tasksync.$push($scope.task);
         $scope.task = {};
     };
@@ -30,17 +34,21 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     // Here I'm making a function to update the status of the tasks so that other users can see what is being worked on.
     $scope.update = function(tasklist){
         // console.log("This", tasklist)
+        tasklist.time.taken = new Date().valueOf();
         tasklist.status = "Taken";
+        console.log("This", tasklist);
         $scope.tasklist.$save(tasklist);
     }
 
     $scope.stop = function(tasklist){
         // console.log("This", tasklist)
         tasklist.status = "Untaken";
+        tasklist.time.taken = "";
         $scope.tasklist.$save(tasklist);
     }
 
     $scope.complete = function(tasklist){
+        tasklist.time.complete = new Date().valueOf();
         tasklist.status = "Complete";
         $scope.tasklist.$save(tasklist);
     }
