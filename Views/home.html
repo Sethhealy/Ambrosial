@@ -18,6 +18,34 @@
                 </div>
             </div>
         </div>
+          <!-- <button ng-click="toggleModal()" class="btn btn-default">Open modal</button>
+          <modal title="Login form" visible="showModal">
+            <form role="form" name="taskForm" class="secondary-font inital" ng-submit="addTask()">
+              <div class="form-group">
+                <input ng-model="$parent.sections" class="add" type="text"
+                placeholder="Section name"/>
+                <div class="gap"></div>
+              </div>
+              <div class="form-group">
+                <input class="add" ng-model="$parent.task.name" type="text" maxlength="30" placeholder="New Task" required/>
+                <div class="gap"></div>
+              </div>
+              <div class="form-group">
+                <select class="add space" ng-model="$parent.task.priority" required>
+                    <option value ="None" ng-selected="selected" ng-disabled="none"> None</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <div class="gap"></div>
+              </div>
+              <div class="form-group">
+                <input class="add capitalize" maxlength="30" type="text" ng-model="$parent.task.employee" placeholder="Add Employees"/>
+                <div class="gap"></div>
+              </div>
+              <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p></button>
+            </form>
+          </modal> -->
                 <div class="accordion">
                     <!-- Here is where my accordian is being called and only one at a time. -->
                     <accordion close-others="oneAtATime">
@@ -103,7 +131,6 @@
                         <div class="newlist" ng-repeat="($id,task) in section" ng-show="task.status == 'Complete'">
                             <div class="sec3">
                                 <ol>
-                                    {{section.$id}}
                                     <p> Employee(s): {{task.employee || 'empty'}}</p>
                                     <p> Task: {{ task.name || "empty" }} </p>
                                     <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p>
