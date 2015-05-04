@@ -6,46 +6,18 @@
                 <ul>
                     <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
                     <li ng-show="user"> {{user.firstname}} <br>
-                    <a href="#/" ng-click="authObj.$unauth()">Signout</a></li>
+                    <a href="#/" ng-click="authObj.$unauth()"> Signout </a></li>
                 </ul>
                 </nav>
-            <div class="wrapper">
+\            <div class="wrapper">
                 <div class="Title header-font" ng-if="user.usertype =='admin'">
                     <h1 ng-model="location" editable-text='title'> {{location || "Location"}} </h1>
                 </div>
                 <div class="Title header-font" ng-if="user.usertype =='employee'">
-                    <h3> {{location || "3100 bishop park dr orlando,fl"}} </h3>
+                    <a href=""><h3> {{location || "3100 bishop park dr. Orlando, Fl"}} </h3></a>
                 </div>
             </div>
         </div>
-          <!-- <button ng-click="toggleModal()" class="btn btn-default">Open modal</button>
-          <modal title="Login form" visible="showModal">
-            <form role="form" name="taskForm" class="secondary-font inital" ng-submit="addTask()">
-              <div class="form-group">
-                <input ng-model="$parent.sections" class="add" type="text"
-                placeholder="Section name"/>
-                <div class="gap"></div>
-              </div>
-              <div class="form-group">
-                <input class="add" ng-model="$parent.task.name" type="text" maxlength="30" placeholder="New Task" required/>
-                <div class="gap"></div>
-              </div>
-              <div class="form-group">
-                <select class="add space" ng-model="$parent.task.priority" required>
-                    <option value ="None" ng-selected="selected" ng-disabled="none"> None</option>
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
-                </select>
-                <div class="gap"></div>
-              </div>
-              <div class="form-group">
-                <input class="add capitalize" maxlength="30" type="text" ng-model="$parent.task.employee" placeholder="Add Employees"/>
-                <div class="gap"></div>
-              </div>
-              <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p></button>
-            </form>
-          </modal> -->
                 <div class="accordion">
                     <!-- Here is where my accordian is being called and only one at a time. -->
                     <accordion close-others="oneAtATime">
@@ -53,7 +25,6 @@
                         <!-- Here is my list div where all the tasks are being placed.  -->
                         <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="($id,task) in section" ng-hide="task.status == 'Complete'">
 
-                        <!-- Placing an div here so I can make a box for my priority level -->
                             <div class="sec1" ng-if="user.usertype !='user'">
                                 <div  class="priority" ng-class= "{red: task.priority == 'High' , yellow: task.priority == 'Medium' , green: task.priority == 'Low'}">
                                 </div>
@@ -61,7 +32,7 @@
                             <!-- Editing tasks (admin can only edit tasks) and admin can delete.-->
                             <div class="sec2" ng-if="user.usertype == 'admin'">
                                 <div class= "employeelist">
-                                <a href="#" class="text" editable-text='task.employee' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.employee || "Add employee"}} </a>
+                                <a href="#" class="text" editable-text='task.employee' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.employee || capitalize}} </a>
                                 <div class="admintext">
                                 <a href="#" class="textname" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->

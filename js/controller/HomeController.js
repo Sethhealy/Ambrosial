@@ -65,6 +65,9 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         }
 
     })
+
+
+
     // Here I'm using selected as a choice for the drop down for status to default to none.
     $scope.selected = true;
     $scope.none = true;

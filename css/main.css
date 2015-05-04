@@ -96,7 +96,7 @@ body{
 .Title{
     width:100%;
     clear:both;
-    position: relative;
+    position: absolute;
     left:50px;
     top:20px;
 }
