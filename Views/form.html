@@ -1,0 +1,33 @@
+<div class="taskform">
+  <h3 class="task"> Add task </h3>
+    <form name="taskForm" class="secondary-font inital" ng-submit="addTask()">
+        Add section:
+        <input ng-model="sections" class="add" type="text" placeholder="Section name"/>
+        <div class="gap"></div>
+        Add task:
+        <input class="add" ng-model="task.name" type="text" maxlength="30" placeholder="New Task" required/>
+        <div class="gap"></div>
+        <!-- Here is where my tasks will have priorities given to them -->
+        Add priority:
+        <select class="add space" ng-model="task.priority" required>
+          <option value ="None" ng-selected="selected" ng-disabled="none">
+          None</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <div class="gap"></div>
+        Add Employee(s):
+        <input class="add capitalize" maxlength="30" type="text" ng-model="task.employee" placeholder="Add Employees"/>
+        <div class="gap"></div>
+        <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
+        </button>
+    </form>
+    <form name="locationform" class="secondary-font inital" ng-submit="addLocation()">
+        <h3>Add location</h3>
+        <input class="add capitalize" maxlength="30" type="text" ng-model="task.location" placeholder="Add location"/>
+          <div class="gap"></div>
+            <button type="submit" class="space btn-seth header-font" ng-disabled="locationform.$invalid"><p>Enter</p>
+        </button>
+    </form>
+</div>

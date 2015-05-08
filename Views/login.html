@@ -10,15 +10,16 @@
                         <input type="text" name="email" ng-model="user.email" placeholder="Email"
                         ng-required="true">
                         <!-- I'm validating the email here to make sure they implement an email. -->
-                        <p ng-show="loginform.email.$invalid">Email is not valid</p>
-                    </div>
+<!--                         <p ng-show="loginform.email.$invalid">Email is not valid</p>
+ -->                    </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" name="password" ng-model="user.password" placeholder="password"
                         ng-required="true">
                         <!-- I'm using validation to check the password. -->
-                        <p ng-show="loginform.password.$invalid">Password is required</p>
-                    </div>
+<!--                         <p ng-show="loginform.password.$invalid">Password is required</p>
+
+ -->                    </div>
                         <!-- If they haven't filled out the form the button will be disabled and unable to click. -->
                         <button ng-disabled="loginform.$invalid" type="submit" ng-click="loginSubmit()">
                         Login </button>

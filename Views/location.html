@@ -1,0 +1,10 @@
+<div class="taskform">
+  <h3> Add location </h3>
+  <div class="gap"></div>
+    <form name="taskForm" class="secondary-font inital" ng-submit="addLocation()">
+        Add location:
+        <input ng-model="$parent.sections" class="add" type="text" placeholder="Location of job"/>
+        <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
+        </button>
+    </form>
+</div>

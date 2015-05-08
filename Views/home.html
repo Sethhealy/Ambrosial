@@ -1,23 +1,24 @@
             <h1 class="heading">Ambrosial</h1>
+
+                <div class="Title header-font" ng-if="user.usertype =='admin'">
+                <h1 editable-text='title' onaftersave="tasklist.$save(section)"> {{task.location || "Location"}} </h1>
+                </div>
+                <div class="Title header-font" ng-if="user.usertype =='employee'">
+                    <a><h3> {{task.location || "empty"}} </h3></a>
+                </div>
             <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
                 <a ng-click="nav = true" class="glyphicon bars-outside glyphicon-align-justify" ng-hide="nav"></a>
-                <nav ng-show="nav" class="navbar">
+                <nav ng-controller="LoginController" ng-show="nav" class="navbar">
                 <a ng-click="nav = false" class="glyphicon bars-inside glyphicon-align-justify"></a>
                 <ul>
                     <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
+                    <li ng-if="user.usertype == 'admin'"><a ng-click="openForm()">Add tasks</a></li>
                     <li ng-show="user"> {{user.firstname}} <br>
-                    <a href="#/" ng-click="authObj.$unauth()"> Signout </a></li>
+<!--                     <li><a ng-click="deleteall()"> Delete All </a></li>
+ -->                <a href="#/" ng-click="authObj.$unauth()"> Signout </a></li>
                 </ul>
                 </nav>
-\            <div class="wrapper">
-                <div class="Title header-font" ng-if="user.usertype =='admin'">
-                    <h1 ng-model="location" editable-text='title'> {{location || "Location"}} </h1>
-                </div>
-                <div class="Title header-font" ng-if="user.usertype =='employee'">
-                    <a href=""><h3> {{location || "3100 bishop park dr. Orlando, Fl"}} </h3></a>
-                </div>
             </div>
-        </div>
                 <div class="accordion">
                     <!-- Here is where my accordian is being called and only one at a time. -->
                     <accordion close-others="oneAtATime">
@@ -32,7 +33,7 @@
                             <!-- Editing tasks (admin can only edit tasks) and admin can delete.-->
                             <div class="sec2" ng-if="user.usertype == 'admin'">
                                 <div class= "employeelist">
-                                <a href="#" class="text" editable-text='task.employee' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.employee || capitalize}} </a>
+                                <a href="#" class="text capitalize" editable-text='task.employee' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.employee || "empty"}} </a>
                                 <div class="admintext">
                                 <a href="#" class="textname" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->
@@ -71,29 +72,6 @@
                     </accordion-group>
                     </accordion>
                 </div>
-                <!--Where the add feature places the Obj-->
-                <div class="addall" ng-if="user.usertype == 'admin'">
-                    <h3 class="task"> Add task </h3>
-                    <form name="taskForm" class="secondary-font inital" ng-submit="addTask()">
-                        <input ng-model="$parent.sections" class="add" type="text" placeholder="Section name"/>
-                        <div class="gap"></div>
-                        <input class="add" ng-model="$parent.task.name" type="text" maxlength="30" placeholder="New Task" required/>
-                        <div class="gap"></div>
-                        <!-- Here is where my tasks will have priorities given to them -->
-                        <select class="add space" ng-model="$parent.task.priority" required>
-                          <option value ="None" ng-selected="selected" ng-disabled="none">
-                          None</option>
-                          <option value="Low">Low</option>
-                          <option value="Medium">Medium</option>
-                          <option value="High">High</option>
-                        </select>
-                        <div class="gap"></div>
-                        <input class="add capitalize" maxlength="30" type="text" ng-model="$parent.task.employee" placeholder="Add Employees"/>
-                        <div class="gap"></div>
-                        <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
-                        </button>
-                    </form>
-                </div>
                 <h3>Completed Tasks</h3>
 
                 <accordion close-others="oneAtATime">
@@ -102,9 +80,11 @@
                         <div class="newlist" ng-repeat="($id,task) in section" ng-show="task.status == 'Complete'">
                             <div class="sec3">
                                 <ol>
-                                    <p> Employee(s): {{task.employee || 'empty'}}</p>
-                                    <p> Task: {{ task.name || "empty" }} </p>
-                                    <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p>
+                                    <li class="styles">
+                                        <p> Employee(s): {{task.employee || 'empty'}}</p>
+                                        <p> Task: {{ task.name || "empty" }} </p>
+                                    </li>
+                                        <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p>
                                 </ol>
                             </br>
                             </div>

@@ -1,5 +1,5 @@
 //I'm calling my Login controller but I'm also using this as a signup feature as well.
-app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAuth','$firebase',function($scope,$rootScope,$location,$firebaseAuth,$firebase){
+app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAuth','$firebase','$modal',function($scope,$rootScope,$location,$firebaseAuth,$firebase,$modal){
 
     // url is created here to shorten my call to firebase faster and easier.
     var url = "https://caterme.firebaseio.com/";
@@ -8,7 +8,7 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
 
     // I'm calling my data as an array to be used.
 
-    $scope.tasklist=$firebase(new Firebase(url)).$asArray();
+    $scope.tasklist = $firebase(new Firebase(url)).$asArray();
     $scope.authObj = $firebaseAuth(new Firebase(url));
 
     // loginSubmit will run the login function on click from the html.
@@ -21,7 +21,6 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
             }).catch(function(error){
                 $scope.error = error;
                 // console logged the error to find out what the error message was.
-                // console.log(error);
                 $scope.user.pass = "";
             })
     // login ends
@@ -58,4 +57,12 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
         });
         // signup ends
         }
+
+    $scope.openForm = function () {
+        var modalInstance = $modal.open({
+          templateUrl: 'views/form.html',
+          controller: 'HomeController'
+        });
+        }
+
 }])

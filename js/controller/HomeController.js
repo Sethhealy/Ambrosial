@@ -20,6 +20,7 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         $scope.employee = {};
     };
 
+
     // Here I'm making a function allowing the admin to create new tasks.
     $scope.addTask = function (){
       var taskref = new Firebase(url+"tasks/"+$scope.sections);
@@ -28,6 +29,14 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         $scope.task.time.start = new Date().valueOf();
         console.log($scope.task);
         tasksync.$push($scope.task);
+        $scope.task = {};
+    };
+
+    $scope.addLocation = function (){
+      var locationref = new Firebase(url+"locations/");
+      var locationsync = $firebase(locationref);
+        console.log($scope.task);
+        locationsync.$push($scope.task);
         $scope.task = {};
     };
 
@@ -92,3 +101,30 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     isFirstDisabled: false
   };
 }]);
+
+// app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $rootScope, $location, $firebase, $firebaseAuth) {
+
+//     // Cancel Functionality
+//   $scope.cancel = function () {
+
+//     $modalInstance.dismiss('cancel');
+
+//   }; // end of cancel()
+
+//     // Run addtask
+//     $scope.addTask = function (){
+//       var taskref = new Firebase(url+"tasks/"+$scope.sections);
+//       var tasksync = $firebase(taskref);
+//         $scope.task.time = {};
+//         $scope.task.time.start = new Date().valueOf();
+//         console.log($scope.task);
+//         tasksync.$push($scope.task);
+//         $scope.task = {};
+//     };
+
+//             $location.path('/home');
+
+
+//           // $scope.taskform();
+//           $modalInstance.dismiss('cancel');
+//         })
