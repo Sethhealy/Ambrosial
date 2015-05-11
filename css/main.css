@@ -1,5 +1,5 @@
 body{
-    background-color: #00C5CD;
+    background-color: #E0DEDD;
     margin: 0 auto;
     padding-left: 3%;
     padding-right: 3%;
@@ -109,11 +109,15 @@ body{
 .fullsize{
     width:100%;
 }
+.hamburger{
+    padding-left: 0px;
+}
+
 .time{
     float:right;
     position: relative;
     top:-40px;
-    text-align: right;
+    text-align: left;
 }
 
 li{
@@ -202,7 +206,6 @@ a{
 .form-control{
     position:absolute !important;
     top:-6px !important;
-    right:-40px !important;
     width:45%;
     float:right;
     margin:0;
@@ -241,14 +244,14 @@ a{
     position: fixed;
     top:35px;
     right:40px;
-    z-index: 90;
+    z-index: 90000;
 }
 .navbar{
     float:right;
     position: fixed;
     top:0;
     right:20px;
-    z-index: 90;
+    z-index: 900000;
 }
 .bars-inside{
     width:30px;

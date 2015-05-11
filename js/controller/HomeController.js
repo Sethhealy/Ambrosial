@@ -9,7 +9,8 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 
     // scope is allowing my data to be called as an array so I can pull from it.
     $scope.tasklist=sync.$asArray();
-
+    // console.log($scope.tasklist);
+    // $rootScope.taskLocation =
     // I'm consoling my data to make sure it is working.
     // console.log("my data: ", $scope.tasklist);
     var time = new Date();
@@ -32,10 +33,13 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         $scope.task = {};
     };
 
+
+
     $scope.addLocation = function (){
       var locationref = new Firebase(url+"locations/");
       var locationsync = $firebase(locationref);
-        console.log($scope.task);
+        console.log($scope.task.location);
+        $rootScope.taskLocation = $scope.task.location;
         locationsync.$push($scope.task);
         $scope.task = {};
     };

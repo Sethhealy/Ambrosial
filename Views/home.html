@@ -1,21 +1,20 @@
             <h1 class="heading">Ambrosial</h1>
 
                 <div class="Title header-font" ng-if="user.usertype =='admin'">
-                <h1 editable-text='title' onaftersave="tasklist.$save(section)"> {{task.location || "Location"}} </h1>
+                <h1 editable-text='title' onaftersave="task.$save(section)"> {{ taskLocation }} </h1>
                 </div>
                 <div class="Title header-font" ng-if="user.usertype =='employee'">
-                    <a><h3> {{task.location || "empty"}} </h3></a>
+                    <a><h3> {{ taskLocation }} </h3></a>
                 </div>
             <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
                 <a ng-click="nav = true" class="glyphicon bars-outside glyphicon-align-justify" ng-hide="nav"></a>
                 <nav ng-controller="LoginController" ng-show="nav" class="navbar">
                 <a ng-click="nav = false" class="glyphicon bars-inside glyphicon-align-justify"></a>
-                <ul>
+                <ul class="hamburger">
                     <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Signup </a></li>
                     <li ng-if="user.usertype == 'admin'"><a ng-click="openForm()">Add tasks</a></li>
                     <li ng-show="user"> {{user.firstname}} <br>
-<!--                     <li><a ng-click="deleteall()"> Delete All </a></li>
- -->                <a href="#/" ng-click="authObj.$unauth()"> Signout </a></li>
+                    <a href="#/" ng-click="authObj.$unauth()"> Signout </a></li>
                 </ul>
                 </nav>
             </div>
@@ -92,3 +91,4 @@
 
                     </accordion-group>
                 </accordion>
+
