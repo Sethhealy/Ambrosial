@@ -16,9 +16,6 @@ var app = angular.module("Ambrosial", ['ngRoute', 'ngTouch', 'xeditable','ui.boo
         }).when('/signup',{
             templateUrl:'Views/signup.html',
             controller: 'LoginController'
-        }).when('/form',{
-            templateUrl:'Views/signup.html',
-            controller: 'LoginController'
         });
     }]);
     // I an running editableoption so that the application will be using bootstrap by default.
