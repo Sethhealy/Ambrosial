@@ -18,6 +18,7 @@
                 </ul>
                 </nav>
             </div>
+            <h3>Current Tasks</h3>
                 <div class="accordion">
                     <!-- Here is where my accordian is being called and only one at a time. -->
                     <accordion close-others="oneAtATime">
@@ -37,9 +38,7 @@
                                 <a href="#" class="textname" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
                             <!-- <p class="items"> {{ tasklist | json }}</p> -->
                                 <div class = "admindelete">
-                                    <div ng-show="showActions">
-                                      <button ng-click="section[$parent.$id] = null; tasklist.$save(section)"> Delete </button>
-                                    </div>
+                                      <a ng-click="section[$parent.$id] = null; tasklist.$save(section)"> - </a>
                                 </div>
                                 <!-- <button class="btn btn-primary btn-seth header-font" ng-click="tasklist.$remove(task)"> Delete </button> -->
                             </div>
@@ -64,7 +63,7 @@
                             <div ng-if="user.usertype == 'user'">
                                 <ul>
                                     <li><p class="usertext"> {{ task.name || "empty"}} </p></li>
-                                    <li><p>{{ task.time.start | date:'shortTime' }}</p></li>
+                                    <li><p class="startedtime"> Started: {{ task.time.start | date:'shortTime' }}</p></li>
                                 </ul>
                             </div>
                         </div>
@@ -74,7 +73,7 @@
                 <h3>Completed Tasks</h3>
 
                 <accordion close-others="oneAtATime">
-                     <accordion-group  heading="{{section.$id}}" ng-repeat="section in tasklist" class="background secondary-font">
+                     <accordion-group  heading="{{section.$id}}" ng-repeat="section in tasklist" class="background secondary-font" ng-if="user.usertype != 'user'" >
 
                         <div class="newlist" ng-repeat="($id,task) in section" ng-show="task.status == 'Complete'">
                             <div class="sec3">
@@ -84,6 +83,21 @@
                                         <p> Task: {{ task.name || "empty" }} </p>
                                     </li>
                                         <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p>
+                                </ol>
+                            </br>
+                            </div>
+                        </div>
+
+                    </accordion-group>
+                    <accordion-group  heading="{{section.$id}}" ng-repeat="section in tasklist" class="background secondary-font" ng-if="user.usertype == 'user'" >
+
+                        <div class="newlist" ng-repeat="($id,task) in section" ng-show="task.status == 'Complete'">
+                            <div class="sec3">
+                                <ol>
+                                    <li class="styles">
+                                        <p> Task: {{ task.name || "empty" }} </p>
+                                    </li>
+                                        <p class="time"> Completed: {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p>
                                 </ol>
                             </br>
                             </div>

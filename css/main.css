@@ -46,6 +46,7 @@ body{
 
 .styles{
     list-style-type: circle;
+    position: relative;
 }
     /* This targets all the buttons */
 .btn-seth{
@@ -116,8 +117,15 @@ body{
 .time{
     float:right;
     position: relative;
-    top:-40px;
+    top:-30px;
     text-align: left;
+}
+
+.startedtime{
+    position: relative;
+    top:35px;
+    float:right;
+    right:30px;
 }
 
 li{
@@ -140,7 +148,8 @@ li{
 .admindelete{
     position: absolute;
     right:55px;
-    top:30px;
+    top:10px;
+    font-size: 45px;
 }
 .background{
     background-color: lightblue;
