@@ -63,6 +63,7 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
           templateUrl: 'views/form.html',
           controller: 'HomeController'
         });
+        $location.path('/form');
         }
 
 }])
