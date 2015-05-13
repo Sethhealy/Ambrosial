@@ -9,8 +9,16 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 
     // scope is allowing my data to be called as an array so I can pull from it.
     $scope.tasklist=sync.$asArray();
+
+    $scope.tasklist.$loaded()
+        .then(function(data){
+            data == $scope.tasklist;
+            console.log("data yo", $scope.tasklist);
+        })
+        .catch(function(error){
+            console.log("error", error);
+        });
     // console.log($scope.tasklist);
-    // $rootScope.taskLocation =
     // I'm consoling my data to make sure it is working.
     // console.log("my data: ", $scope.tasklist);
     var time = new Date();
@@ -38,10 +46,21 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     $scope.addLocation = function (){
       var locationref = new Firebase(url+"locations/");
       var locationsync = $firebase(locationref);
-        console.log($scope.task.location);
-        $rootScope.taskLocation = $scope.task.location;
-        locationsync.$push($scope.task);
-        $scope.task = {};
+        $scope.taskLocation = locationsync.$asObject();
+
+        $scope.taskLocation.$loaded()
+        .then(function(data){
+            data == $scope.taskLocation;
+            $scope.taskLocation.location = $scope.task.location;
+            $scope.taskLocation.$save();
+            console.log("data yo", $scope.taskLocation);
+        })
+        .catch(function(error){
+            console.log("error", error);
+        });
+        // locationsync.$push($scope.task);
+        // $scope.task = {};
+
     };
 
     // Here I'm making a function to update the status of the tasks so that other users can see what is being worked on.
@@ -72,7 +91,29 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
             var userRef = new Firebase(url+"users/"+authData.uid);
             var sync = $firebase(userRef);
             $scope.user = sync.$asObject();
-            // console.log($scope.user);
+            $scope.user.$loaded().then(function(data){
+
+                var currentTime = new Date().valueOf();
+                var endTime = parseInt(data.createdtime) + (1000*60*60*24);
+                // console.log("Current:", currentTime, "End:", endTime);
+                // console.log("created", data.createdtime);
+
+                if(currentTime >= endTime){
+                    console.log("User is old");
+                    $scope.authObj.$removeUser({
+                      email: data.email,
+                      password: "password"
+                    }).then(function() {
+                      console.log("User removed successfully!");
+                    }).catch(function(error) {
+                      console.error("Error: ", error);
+                    });
+                }else{
+                    console.log("User is fine");
+                }
+            }).catch(function(error){
+                console.log("Error", error);
+            });
         }else{
             $location.path('/')
         }

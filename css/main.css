@@ -63,20 +63,21 @@ body{
     height: 90px;
     float:left;
     position: relative;
-
 }
 .red{
     background-image:  url("../images/highpriority.png");
     background-repeat: no-repeat;
     width:150px;
     height:80px;
-    margin-top:2px;
+    margin-top:5px;
+    margin-left: 10px;
 }
 .yellow{
     background-image:  url("../images/mediumpriority.png");
     background-repeat: no-repeat;
     width:150px;
-    margin-top: 2px;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 .green{
     background-image:  url("../images/lowpriority.png");
@@ -187,11 +188,6 @@ a{
 .editrow {
   margin: 0 3px;
   padding: 2px;
-}
-.icon-pencil{
-  font-size:11px;
-  position:relative;
-  bottom:7px;
 }
 .usertext{
     width:40%;

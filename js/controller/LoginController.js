@@ -29,6 +29,37 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
     // signup starts
 
 
+
+    $scope.signupUser = function(){
+        console.log("FIRE!!!");
+        // Here I'm calling the signup function to create a user in the firebase and then authenticate the user.
+        $scope.authObj.$createUser($scope.user).then(function(userData) {
+          return $scope.authObj.$authWithPassword($scope.user);
+        }).then(function(authData) {
+             // Here I'm calling userRef so that firebase will have users in the database.
+        var userRef = new Firebase(url+"users/"+authData.uid);
+        $scope.syncUser = $firebase(userRef);
+        $scope.newUser = $scope.syncUser.$asObject();
+          console.log("Signed up as:", authData.uid);
+          $scope.syncUser.$set({
+                    uid: authData.uid,
+                    firstname: $scope.user.name,
+                    email: $scope.user.email,
+                    password: $scope.user.password,
+                    usertype: "user",
+                    createdtime: new Date().valueOf()
+                }
+            );
+          // If everyone was correct the user will be created and the Admin will be placed on the home page.
+          $location.path('/home');
+        }).catch(function(error) {
+            $scope.error = error;
+            // console logged the error to find out what the error message was.
+            // console.error("Error: ", error);
+        });
+        // signup ends
+        }
+
     // Here I'm calling the submit function to run on click.
     $scope.signupSubmit = function(){
 

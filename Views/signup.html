@@ -21,7 +21,7 @@
                         ng-required="true">
                     </div>
                         <!-- If they haven't filled out the form the button will be disabled and unable to click. -->
-                        <button ng-disabled="signupform.$invalid" type="submit" ng-click="signupSubmit()"> Signup </button>
+                        <button ng-disabled="signupform.$invalid" type="submit" ng-click="signupUser()"> Signup </button>
                         <!-- Here is where my error message will appear and I use error.message to display the error message. -->
                         <p class="error" ng-show="error">{{error.message}}</p>
                 </form>
