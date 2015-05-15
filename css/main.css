@@ -98,11 +98,11 @@ body{
     height:25px;
     color:white;
 }
-.Title{
+.title{
     width:100%;
     clear:both;
     position: absolute;
-    left:40px;
+    left:18px;
     top:50px;
 }
 .heading{
@@ -168,6 +168,13 @@ li{
 .background{
     background-color: lightblue;
     width:100%;
+    position: relative;
+}
+pre{
+    position: absolute;
+    left:50px;
+    top:0;
+    height: 25px;
 }
 .status{
     background-color: orange;
@@ -286,5 +293,15 @@ a{
     top:-5px;
 }
 
+.navbar-responsive-collapse{
+    position: absolute;
+    top:0;
+    right:0;
+}
+.nav li{
+    padding-top: -5px;
+}
 
-
+.help-block{
+    color: red;
+}

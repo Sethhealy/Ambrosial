@@ -17,6 +17,19 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         .catch(function(error){
             console.log("error", error);
         });
+
+
+    var locationref = new Firebase(url+"locations/");
+    var locationsync = $firebase(locationref);
+        $scope.taskLocation = locationsync.$asObject();
+
+        $scope.taskLocation.$loaded()
+        .then(function(data){
+            data == $scope.taskLocation;
+        })
+        .catch(function(error){
+            console.log("error", error);
+        });
     // console.log($scope.tasklist);
     // I'm consoling my data to make sure it is working.
     // console.log("my data: ", $scope.tasklist);
@@ -43,20 +56,11 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 
 
     $scope.addLocation = function (task){
-      var locationref = new Firebase(url+"locations/");
-      var locationsync = $firebase(locationref);
-        $scope.taskLocation = locationsync.$asObject();
 
-        $scope.taskLocation.$loaded()
-        .then(function(data){
-            data == $scope.taskLocation;
-            $scope.taskLocation.location = $scope.task.location;
-            $scope.taskLocation.$save();
-            console.log("data yo", task.location);
-        })
-        .catch(function(error){
-            console.log("error", error);
-        });
+
+        $scope.taskLocation.location = $scope.task.location;
+        $scope.taskLocation.$save();
+        console.log("data yo", task.location);
         // locationsync.$push($scope.task);
         // $scope.task = {};
 
