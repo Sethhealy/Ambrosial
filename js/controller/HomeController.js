@@ -13,7 +13,6 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     $scope.tasklist.$loaded()
         .then(function(data){
             data == $scope.tasklist;
-            console.log("data yo", $scope.tasklist);
         })
         .catch(function(error){
             console.log("error", error);
@@ -31,19 +30,19 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 
 
     // Here I'm making a function allowing the admin to create new tasks.
-    $scope.addTask = function (){
+    $scope.addTask = function (tasklist){
       var taskref = new Firebase(url+"tasks/"+$scope.sections);
       var tasksync = $firebase(taskref);
         $scope.task.time = {};
         $scope.task.time.start = new Date().valueOf();
-        console.log($scope.task);
+        console.log($scope.task.name);
         tasksync.$push($scope.task);
         $scope.task = {};
     };
 
 
 
-    $scope.addLocation = function (){
+    $scope.addLocation = function (task){
       var locationref = new Firebase(url+"locations/");
       var locationsync = $firebase(locationref);
         $scope.taskLocation = locationsync.$asObject();
@@ -53,7 +52,7 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
             data == $scope.taskLocation;
             $scope.taskLocation.location = $scope.task.location;
             $scope.taskLocation.$save();
-            console.log("data yo", $scope.taskLocation);
+            console.log("data yo", task.location);
         })
         .catch(function(error){
             console.log("error", error);
@@ -84,6 +83,8 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         tasklist.status = "Complete";
         $scope.tasklist.$save(tasklist);
     }
+
+
     // I'm setting up authorization so the user can be called and displayed.
     $scope.authObj = $firebaseAuth(ref);
     $scope.authObj.$onAuth(function(authData){
@@ -99,7 +100,6 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
                 // console.log("created", data.createdtime);
 
                 if(currentTime >= endTime){
-                    console.log("User is old");
                     $scope.authObj.$removeUser({
                       email: data.email,
                       password: "password"
@@ -109,7 +109,6 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
                       console.error("Error: ", error);
                     });
                 }else{
-                    console.log("User is fine");
                 }
             }).catch(function(error){
                 console.log("Error", error);

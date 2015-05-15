@@ -112,7 +112,11 @@ body{
     width:100%;
 }
 .hamburger{
-    padding-left: 0px;
+    position: relative;
+    left:-30px;
+    padding-left: 30px;
+    width:130px;
+    margin-top: 10px;
 }
 
 .time{
@@ -127,6 +131,15 @@ body{
     top:35px;
     float:right;
     right:30px;
+}
+
+.logo{
+    height: 30px;
+    width:80px;
+}
+footer{
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 li{
@@ -245,18 +258,15 @@ a{
 /* navigation */
 
 .navigation{
-    width:100%;
-    position: fixed;
+    position: absolute;
     top:35px;
-    right:40px;
-    z-index: 90000;
+    right:70px;
 }
 .navbar{
-    float:right;
-    position: fixed;
-    top:0;
-    right:20px;
-    z-index: 900000;
+    position: absolute;
+    width:140px;
+    top:-40px;
+    right:-80px;
 }
 .bars-inside{
     width:30px;

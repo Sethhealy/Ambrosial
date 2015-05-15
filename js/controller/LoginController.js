@@ -20,7 +20,6 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
                 $location.path('/home');
             }).catch(function(error){
                 $scope.error = error;
-                // console logged the error to find out what the error message was.
                 $scope.user.pass = "";
             })
     // login ends
@@ -80,7 +79,7 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
                     usertype: "employee"}
             );
           // If everyone was correct the user will be created and the Admin will be placed on the home page.
-          $location.path('/home');
+          $location.path('/');
         }).catch(function(error) {
             $scope.error = error;
             // console logged the error to find out what the error message was.
