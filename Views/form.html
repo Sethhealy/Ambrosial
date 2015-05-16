@@ -1,5 +1,5 @@
 <div class="taskform">
-  <h3 class="task"> Add task </h3>
+  <h3 class="heading"> Add task </h3>
     <form name="taskForm" class="secondary-font inital" ng-submit="addTask()">
         Add section:
         <input ng-model="sections" class="add" type="text" placeholder="Section name"/>
@@ -20,7 +20,7 @@
         Add Employee(s):
         <input class="add capitalize" maxlength="30" type="text" ng-model="task.employee" placeholder="Add Employees" required/>
         <div class="gap"></div>
-        <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
+        <button type="submit" class="button light-button space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
         </button>
     </form>
 <!--     <form name="locationform" class="secondary-font inital" ng-submit="addLocation(task)">

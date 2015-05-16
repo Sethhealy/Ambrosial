@@ -1,4 +1,5 @@
 body{
+    background-image: url("images/groovepaper.png");
     background-color: #ECECEC;
     margin: 0 auto;
     padding-left: 3%;
@@ -167,8 +168,8 @@ li{
 .admindelete{
     position: absolute;
     right:55px;
-    top:10px;
-    font-size: 45px;
+    top:20px;
+    font-size: 30px;
 }
 .background{
     background-color: #FFFEFD;
@@ -247,9 +248,15 @@ a{
 
 .employee{
     position: relative;
-    top:23px;
-    right:-10px;
+    top:35px;
+    right:-61px;
 }
+
+.usersign{
+    position: relative;
+    top:14px;
+}
+
 .employeesignout{
     position: relative;
     top:30px;
@@ -257,8 +264,8 @@ a{
 }
 .signout{
     position: relative;
-    top:40px;
-    right:43px;
+    top:55px;
+    right:53px;
 }
 
 .assign{
@@ -270,7 +277,8 @@ a{
 
 .center{
     width:90%;
-    margin-left:30%;
+    margin: 0 auto;
+    padding-left: 25%;
 }
 
 .inital{
@@ -329,3 +337,68 @@ a{
     position: relative;
     bottom:40px;
 }
+
+/* Buttons */
+
+.button,
+.button:hover {
+  border-top:   none; /* fix for input button/submit element */
+  border-left:  none; /* fix for input button/submit element */
+  border-right: none; /* fix for input button/submit element */
+  transition:   background          .3s linear,
+                border-bottom-color .3s linear;
+            }
+a.button {
+  display: inline-block;
+}
+
+.button {
+  color: #000000;
+  border-bottom-width: .2em;
+  border-bottom-style: solid;
+}
+
+.button:hover {
+  color: #fff;
+}
+
+.button:active {
+  transform: translate(0, .18em);
+  border-bottom-width: .1em;
+  margin-bottom:       .1em;
+}
+
+.button:focus {
+  outline: none;
+}
+
+
+.light-button {
+  text-shadow:         0 .1em 1px #676567;
+  background:          #9c9a9d;
+  border-bottom-color: #676567;
+  box-shadow:          0 0 0 .04em #676567;
+}
+.red-button {
+  text-shadow:         0 .1em 1px #cc2b27;
+  background:          #ff392e;
+  border-bottom-color: #cc2b27;
+  box-shadow:          0 0 0 .04em #a2221f;
+}
+.green-light-button {
+  text-shadow:         0 .1em 1px #7fa736;
+  background:          #7fd54b;
+  border-bottom-color: #7fa736;
+  box-shadow:          0 0 0 .04em #63812a;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -18,6 +18,9 @@ var app = angular.module("Ambrosial", ['ngRoute', 'ngTouch', 'xeditable','ui.boo
             controller: 'LoginController'
         }).when('/form',{
             templateUrl:'Views/form.html',
+            controller: 'HomeController'
+        }).when('/user',{
+            templateUrl: 'Views/signupuser.html',
             controller: 'LoginController'
         });
     }]);

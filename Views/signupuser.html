@@ -1,10 +1,9 @@
-<!-- This is my signup for where the Admin will sign up new users to the system. -->
 <div class="container-fluid center">
     <div class="row">
         <h1 class="header-font heading"> <a href="/#/home">Ambrosial</a> </h1>
-            <h2 class="header-font">Sign Up</h2>
+            <h2 class="header-font">Sign Up A User</h2>
                 <!-- I gave the form a name so that I can target the form members to make sure they are all used. -->
-                <form name="signupform" class="secondary-font" ng-submit="signup()" novalidate>
+                <form name="signupform" class="secondary-font" ng-submit="signupUser()" novalidate>
                     <div class="form-group">
                         <label for ="firstname">First Name</label>
                         <input type="username" name="name" ng-model="user.name" placeholder="First Name"
@@ -21,7 +20,7 @@
                         ng-required="true">
                     </div>
                         <!-- If they haven't filled out the form the button will be disabled and unable to click. -->
-                        <button ng-disabled="signupform.$invalid" class="button light-button" type="submit" ng-click="signupSubmit()"> Signup </button>
+                        <button ng-disabled="signupform.$invalid" type="submit" ng-click="signupUser()"> Signup </button>
                         <!-- Here is where my error message will appear and I use error.message to display the error message. -->
                         <p class="error" ng-show="error">{{error.message}}</p>
                 </form>

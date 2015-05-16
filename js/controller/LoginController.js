@@ -30,7 +30,6 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
 
 
     $scope.signupUser = function(){
-        console.log("FIRE!!!");
         // Here I'm calling the signup function to create a user in the firebase and then authenticate the user.
         $scope.authObj.$createUser($scope.user).then(function(userData) {
           return $scope.authObj.$authWithPassword($scope.user);
@@ -89,15 +88,11 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
         // signup ends
         }
 
-        $scope.trigger = function(){
-            console.log("Fire");
-        }
-
     $scope.openForm = function(){
         console.log("Fire");
         var modalInstance = $modal.open({
           templateUrl: 'Views/form.html',
-          controller: 'HomeController'
+          controller: 'HomeController',
         });
         }
 

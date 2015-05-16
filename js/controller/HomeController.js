@@ -30,6 +30,9 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         .catch(function(error){
             console.log("error", error);
         });
+
+
+
     // console.log($scope.tasklist);
     // I'm consoling my data to make sure it is working.
     // console.log("my data: ", $scope.tasklist);
@@ -56,8 +59,6 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 
 
     $scope.addLocation = function (task){
-
-
         $scope.taskLocation.location = $scope.task.location;
         $scope.taskLocation.$save();
         console.log("data yo", task.location);
@@ -154,7 +155,7 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $rootScope, $location, $firebase, $firebaseAuth) {
 
     // Cancel Functionality
-  $scope.cancel = function () {
+  $scope.cancel = function (){
 
     $modalInstance.dismiss('cancel');
 
