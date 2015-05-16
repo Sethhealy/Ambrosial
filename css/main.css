@@ -55,6 +55,7 @@ body{
     position: absolute;
     top:49px;
     right:10px;
+    width:73px;
 }
 .styles{
     list-style-type: circle;
