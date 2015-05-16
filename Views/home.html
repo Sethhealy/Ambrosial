@@ -18,7 +18,7 @@
                 <div class="title header-font" ng-if="user.usertype =='admin'">
                     <a ng-href="http://maps.google.com?q={{taskLocation.location}}"><h4> {{ taskLocation.location }} </h4></a>
                 </div>
-                <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin' class="button light-button"">Add tasks</button>
+                <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="button light-button">Add tasks</button>
             <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
 
                 <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="glyphicon bars-outside glyphicon-align-justify xxx" ng-hide="nav"></a>
@@ -92,7 +92,7 @@
                                         <p> Employee(s): {{task.employee || 'empty'}}</p>
                                         <p> Task: {{ task.name || "empty" }} </p>
                                     </li>
-                                        <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p> <button clasd="button red-button" ng-click="stop(task); tasklist.$save(section)">Return the task</button>
+                                        <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p> <button ng-click="stop(task); tasklist.$save(section)">Return the task</button>
                                 </ol>
                             </br>
                             </div>
