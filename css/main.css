@@ -12,13 +12,18 @@ body{
 }
     /* This targets the boxes inside the container*/
 .list{
-    width:100%;
+    width:98%;
     height:90px;
     font-size: 14px;
-    background-color:#FFFEFD;
+    margin: 0 auto;
     margin-bottom:10px;
     position:relative;
     border-bottom: 1px solid black;
+}
+.listwrapper{
+    width:100%;
+    height: 100%;
+    background-color: white;
 }
 .newlist{
     font-size: 14px;
@@ -172,9 +177,9 @@ li{
     font-size: 30px;
 }
 .background{
-    background-color: #FFFEFD;
     width:100%;
     position: relative;
+    background-color: lightblue;
 }
 pre{
     position: absolute;

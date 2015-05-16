@@ -34,9 +34,10 @@
                         <h3>Current Tasks</h3>
                      <accordion-group heading="{{section.$id}}" is-open="section.$first" ng-repeat="section in tasklist"  class="background secondary-font fullsize">
                         <!-- Here is my list div where all the tasks are being placed.  -->
-                        <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="($id,task) in section" ng-hide="task.status == 'Complete'">
 
-                            <div class="sec1" ng-if="user.usertype !='user'">
+                        <div class="list" ng-swipe-right="showActions = true" ng-swipe-left="showActions = false" ng-class= "{status: task.status == 'Taken'}" ng-repeat="($id,task) in section" ng-hide="task.status == 'Complete'">
+                        <div class="listwrapper">
+                            <div ng-if="user.usertype !='user'">
                                 <div  class="priority" ng-class= "{red: task.priority == 'High' , yellow: task.priority == 'Medium' , green: task.priority == 'Low'}">
                                 </div>
                             </div>
@@ -74,6 +75,7 @@
                                 </ul>
                             </div>
                         </div>
+                    </div>
                     </accordion-group>
                     </accordion>
                 </div>
