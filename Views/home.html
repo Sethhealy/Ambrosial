@@ -1,21 +1,21 @@
             <h1 class="heading">Ambrosial</h1>
-            <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar">
-            </a>
+            <h3 class="username capitalize" ng-show="user">Welcome, {{user.firstname}} </h3>
+            <!-- <a  ng-if="user.usertype == 'admin'" ng-click="trigger();">Add tasks</a> -->
                <div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
                   <ul class="nav">
-                        <li ng-if="user.usertype == 'admin'"><a href="#/signup"> Add employee </a></li>
-                     <!--    <li ng-if="user.usertype == 'admin'"><a ng-click="openForm()">Add tasks</a></li> -->
-                        <li> <a href="" class="username" ng-show="user"> {{user.firstname}}</a></li>
-                        <li><a class="signout" href="#/" ng-click="authObj.$unauth()"> Signout </a></li>
+                        <a href="#/signup" class="add employee" ng-if="user.usertype == 'admin'"> Add employee </a>
+                        <a href="#/" ng-click="authObj.$unauth()" class="employeesignout" ng-if="user.usertype != 'admin'"> Signout </a>
+                        <a class="signout" href="#/" ng-if="user.usertype == 'admin'" ng-click="authObj.$unauth()"> Signout </a>
+
                   </ul>
                </div>
 
 
                 <div class="title header-font" ng-if="user.usertype =='employee'">
-                <h3>  <a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}</a></h3>
+                <h4>  <a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}</a></h4>
                 </div>
                 <div class="title header-font" ng-if="user.usertype =='admin'">
-                    <a ng-href="http://maps.google.com?q={{taskLocation.location}}"><h3> {{ taskLocation.location }} </h3></a>
+                    <a ng-href="http://maps.google.com?q={{taskLocation.location}}"><h4> {{ taskLocation.location }} </h4></a>
                 </div>
             <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
 
@@ -25,6 +25,45 @@
                     <a collapse="navCollapsed" class="glyphicon bars-inside glyphicon-align-justify"></a>
                 </nav>
             </div>
+
+            <accordion close-others="oneAtATime" ng-if="user.usertype == 'admin'">
+                    <accordion-group heading="Add Task">
+                        <div class="taskform">
+                      <h3 class="task"> Add task </h3>
+                        <form name="taskForm" class="secondary-font inital" ng-submit="addTask()">
+                            Add section:
+                            <input ng-model="sections" name="section" class="add" type="text" placeholder="Section name" ng-pattern= "/^[^\.!@#$%^&*()]*$/" />
+                            <p ng-show="taskForm.section.$invalid" class="help-block">Please do not use special characters.</p>
+                            <div class="gap"></div>
+                            Add task:
+                            <input class="add" ng-model="task.name" type="text" maxlength="30" placeholder="New Task" required/>
+                            <div class="gap"></div>
+                            <!-- Here is where my tasks will have priorities given to them -->
+                            Add priority:
+                            <select class="add space" ng-model="task.priority" required>
+                              <option value ="None" ng-selected="selected" ng-disabled="none">
+                              None</option>
+                              <option value="Low">Low</option>
+                              <option value="Medium">Medium</option>
+                              <option value="High">High</option>
+                            </select>
+                            <div class="gap"></div>
+                            Add Employee(s):
+                            <input class="add capitalize" maxlength="30" type="text" ng-model="task.employee" placeholder="Add Employees" required/>
+                            <div class="gap"></div>
+                            <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
+                            </button>
+                        </form>
+                        <form name="locationform" class="secondary-font inital" ng-submit="addLocation(task)">
+                            <h3>Add location</h3>
+                            <input class="add capitalize" type="text" ng-model="task.location" placeholder="Add location"/>
+                              <div class="gap"></div>
+                                <button type="submit" class="space btn-seth header-font" ng-disabled="locationform.$invalid"><p>Enter</p>
+                            </button>
+                        </form>
+                    </div>
+                    </accordion-group>
+                    </accordion>
 
                 <div class="accordion">
                     <!-- Here is where my accordian is being called and only one at a time. -->
@@ -78,41 +117,6 @@
                     </accordion-group>
                     </accordion>
                 </div>
-
-                    <div class="taskform">
-                      <h3 class="task"> Add task </h3>
-                        <form name="taskForm" class="secondary-font inital" ng-submit="addTask()">
-                            Add section:
-                            <input ng-model="sections" name="section" class="add" type="text" placeholder="Section name" ng-pattern= "/^[^\.]*$/" />
-                            <p ng-show="taskForm.section.$invalid" class="help-block">Please do not use special characters.</p>
-                            <div class="gap"></div>
-                            Add task:
-                            <input class="add" ng-model="task.name" type="text" maxlength="30" placeholder="New Task" required/>
-                            <div class="gap"></div>
-                            <!-- Here is where my tasks will have priorities given to them -->
-                            Add priority:
-                            <select class="add space" ng-model="task.priority" required>
-                              <option value ="None" ng-selected="selected" ng-disabled="none">
-                              None</option>
-                              <option value="Low">Low</option>
-                              <option value="Medium">Medium</option>
-                              <option value="High">High</option>
-                            </select>
-                            <div class="gap"></div>
-                            Add Employee(s):
-                            <input class="add capitalize" maxlength="30" type="text" ng-model="task.employee" placeholder="Add Employees" required/>
-                            <div class="gap"></div>
-                            <button type="submit" class="space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
-                            </button>
-                        </form>
-                        <form name="locationform" class="secondary-font inital" ng-submit="addLocation(task)">
-                            <h3>Add location</h3>
-                            <input class="add capitalize" type="text" ng-model="task.location" placeholder="Add location"/>
-                              <div class="gap"></div>
-                                <button type="submit" class="space btn-seth header-font" ng-disabled="locationform.$invalid"><p>Enter</p>
-                            </button>
-                        </form>
-                    </div>
 
 
 

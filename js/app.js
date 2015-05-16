@@ -16,8 +16,8 @@ var app = angular.module("Ambrosial", ['ngRoute', 'ngTouch', 'xeditable','ui.boo
         }).when('/signup',{
             templateUrl:'Views/signup.html',
             controller: 'LoginController'
-        }).when('/test',{
-            templateUrl:'Views/test.html',
+        }).when('/form',{
+            templateUrl:'Views/form.html',
             controller: 'LoginController'
         });
     }]);

@@ -1,5 +1,5 @@
 body{
-    background-color: #E0DEDD;
+    background-color: #ECECEC;
     margin: 0 auto;
     padding-left: 3%;
     padding-right: 3%;
@@ -13,11 +13,19 @@ body{
 .list{
     width:100%;
     height:90px;
-    background-color:#74cc63;
+    font-size: 14px;
+    background-color:#FFFEFD;
     margin-bottom:10px;
     position:relative;
+    border-bottom: 1px solid black;
 }
-    /* This targets the delete button */
+.newlist{
+    font-size: 14px;
+}
+
+.list:nth-last-child(1){
+    border-bottom: 0px;
+}
 
 .delete{
     margin-top: 300px;
@@ -37,13 +45,11 @@ body{
     right:10px;
     width:73px;
 }
-
 .completebutton{
     position: absolute;
-    top:45px;
+    top:49px;
     right:10px;
 }
-
 .styles{
     list-style-type: circle;
     position: relative;
@@ -101,9 +107,9 @@ body{
 .title{
     width:100%;
     clear:both;
-    position: absolute;
-    left:18px;
-    top:50px;
+    position: relative;
+    left:0px;
+    bottom:20px;
 }
 .heading{
     margin-bottom: 60px;
@@ -132,7 +138,6 @@ body{
     float:right;
     right:30px;
 }
-
 .logo{
     height: 30px;
     width:80px;
@@ -166,7 +171,7 @@ li{
     font-size: 45px;
 }
 .background{
-    background-color: lightblue;
+    background-color: #FFFEFD;
     width:100%;
     position: relative;
 }
@@ -177,7 +182,7 @@ pre{
     height: 25px;
 }
 .status{
-    background-color: orange;
+    background-color: #9BDA8B;
 }
 .error{
     color:red;
@@ -238,9 +243,24 @@ a{
 .employeelist{
     height:20px;
     width:100%;
-/*    border-bottom: thin dotted #000;
-*/
 }
+
+.employee{
+    position: relative;
+    top:23px;
+    right:-10px;
+}
+.employeesignout{
+    position: relative;
+    top:30px;
+    right:35px;
+}
+.signout{
+    position: relative;
+    top:40px;
+    right:43px;
+}
+
 .assign{
     width:100%;
 }
@@ -289,14 +309,14 @@ a{
     font-size: 20px;
     float:right;
     position: relative;
-    right:50px;
+    right:-60px;
     top:-5px;
 }
 
 .navbar-responsive-collapse{
     position: absolute;
     top:0;
-    right:0;
+    right:10px;
 }
 .nav li{
     padding-top: -5px;
@@ -304,4 +324,8 @@ a{
 
 .help-block{
     color: red;
+}
+.username{
+    position: relative;
+    bottom:40px;
 }

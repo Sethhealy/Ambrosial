@@ -149,3 +149,31 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
     isFirstDisabled: false
   };
 }]);
+
+
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $rootScope, $location, $firebase, $firebaseAuth) {
+
+    // Cancel Functionality
+  $scope.cancel = function () {
+
+    $modalInstance.dismiss('cancel');
+
+  }; // end of cancel()
+
+    // Run addtask
+    $scope.addTask = function (){
+      var taskref = new Firebase(url+"tasks/"+$scope.sections);
+      var tasksync = $firebase(taskref);
+        $scope.task.time = {};
+        $scope.task.time.start = new Date().valueOf();
+        console.log($scope.task);
+        tasksync.$push($scope.task);
+        $scope.task = {};
+    };
+
+            $location.path('/home');
+
+
+          // $scope.taskform();
+          $modalInstance.dismiss('cancel');
+        })
