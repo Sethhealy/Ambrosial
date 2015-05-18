@@ -287,6 +287,11 @@ a{
     padding-left: 25%;
 }
 
+.loginpage{
+    width:90%;
+    margin-left: -2%;
+}
+
 .inital{
     text-transform:initial;
     padding: 0 20px 10px 20px;

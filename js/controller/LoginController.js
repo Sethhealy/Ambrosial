@@ -93,6 +93,7 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
         var modalInstance = $modal.open({
           templateUrl: 'Views/form.html',
           controller: 'HomeController',
+          controller: 'LoginController'
         });
         }
 
