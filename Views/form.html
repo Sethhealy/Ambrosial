@@ -1,5 +1,5 @@
 <div class="taskform">
-  <h3 class="heading"> Add task </h3>
+  <h3 class="heading center-align"> Add task </h3>
     <form name="taskForm" class="secondary-font inital" ng-submit="addTask()">
         Add section:
         <input ng-model="sections" name="section" class="add" type="text" placeholder="Section name" ng-pattern="/^[^\.!@#$%]*$/" ng-init="$element.focus()" />
@@ -10,9 +10,7 @@
         <div class="gap"></div>
         <!-- Here is where my tasks will have priorities given to them -->
         Add priority:
-        <select class="add space" ng-init="$element.focus()" ng-model="task.priority" required>
-          <option value ="None" ng-selected="selected" ng-disabled="none">
-          None</option>
+        <select class="add space blacktext" ng-init="$element.focus()" ng-model="task.priority" required>
           <option value="Low">Low</option>
           <option value="Medium">Medium</option>
           <option value="High">High</option>
