@@ -155,7 +155,7 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, $rootScope, $location, $firebase, $firebaseAuth) {
 
     // Cancel Functionality
-  $scope.cancel = function (){
+  $scope.cancel = function(){
 
     $modalInstance.dismiss('cancel');
 

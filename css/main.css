@@ -10,6 +10,12 @@ body{
     margin-top: 10px;
     width:100%;
 }
+
+hr{
+    position: relative;
+    bottom:20px;
+    margin-bottom: 0px;
+}
     /* This targets the boxes inside the container*/
 .list{
     width:98%;
@@ -385,7 +391,6 @@ a.button {
 .button:focus {
   outline: none;
 }
-
 
 .light-button {
   text-shadow:         0 .1em 1px #676567;
