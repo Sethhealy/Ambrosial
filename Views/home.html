@@ -1,6 +1,6 @@
             <h1 class="heading">Ambrosial</h1>
-            <h3 class="username capitalize" ng-show="user">Welcome, {{user.firstname}} </h3>
-
+            <h3 class="username capitalize" ng-show="user">Welcome, {{user.firstname}}
+            </h3>
                <div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
                   <ul class="nav">
                         <a href="#/signup" class="add employee" ng-if="user.usertype == 'admin'"> Add employee </a>
@@ -13,9 +13,9 @@
                </div>
 
                 <div class="title header-font" ng-if="user.usertype =='employee'">
-                <h4>  <a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}</a></h4>
+                <h4 class="capitalize">  <a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}</a></h4>
                 </div>
-                <div class="title header-font" ng-if="user.usertype =='admin'">
+                <div class="capitalize title header-font" ng-if="user.usertype =='admin'">
                     <a ng-href="http://maps.google.com?q={{taskLocation.location}}"><h4> {{ taskLocation.location }} </h4></a>
                 </div>
                 <hr></hr>
