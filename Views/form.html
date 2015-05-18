@@ -2,15 +2,15 @@
   <h3 class="heading"> Add task </h3>
     <form name="taskForm" class="secondary-font inital" ng-submit="addTask()">
         Add section:
-        <input ng-model="sections" name="section" class="add" type="text" placeholder="Section name" ng-pattern= "/^[^\.!@#$%]*$/" />
+        <input ng-model="sections" name="section" class="add" type="text" placeholder="Section name" ng-pattern="/^[^\.!@#$%]*$/" ng-focus="expression" />
         <p ng-show="taskForm.section.$invalid" class="help-block">Please do not use special characters.</p>
         <div class="gap"></div>
         Add task:
-        <input class="add" ng-model="task.name" type="text" maxlength="30" placeholder="New Task" required/>
+        <input class="add" ng-model="task.name" type="text" maxlength="30" placeholder="New Task" ng-focus="expression" required/>
         <div class="gap"></div>
         <!-- Here is where my tasks will have priorities given to them -->
         Add priority:
-        <select class="add space" ng-model="task.priority" required>
+        <select class="add space" ng-focus="expression" ng-model="task.priority" required>
           <option value ="None" ng-selected="selected" ng-disabled="none">
           None</option>
           <option value="Low">Low</option>
@@ -19,7 +19,7 @@
         </select>
         <div class="gap"></div>
         Add Employee(s):
-        <input class="add capitalize" maxlength="30" type="text" ng-model="task.employee" placeholder="Add Employees" required/>
+        <input class="add capitalize" ng-focus="expression" maxlength="30" type="text" ng-model="task.employee" placeholder="Add Employees" required/>
         <div class="gap"></div>
         <button type="submit" class="button light-button space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
         </button>

@@ -6,14 +6,13 @@
                 <!-- I gave the form a name so that I can target the form members to make sure they are all used. -->
                 <form class="login" name="loginform" ng-submit="login()" novalidate>
                     <div class="form-group">
-                        <label class="email" for="username">Email:</label>
+                        <label class="email" for="username">Email:</label></br>
                         <input type="text" name="email" ng-model="user.email" placeholder="Email"
                         ng-required="true">
-                        <!-- I'm validating the email here to make sure they implement an email. -->
-<!--                         <p ng-show="loginform.email.$invalid">Email is not valid</p>
- -->                    </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">Password</label></br>
                         <input type="password" name="password" ng-model="user.password" placeholder="password"
                         ng-required="true">
                         <!-- I'm using validation to check the password. -->
