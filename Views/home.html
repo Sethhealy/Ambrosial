@@ -94,7 +94,7 @@
                                         <p> Employee(s): {{task.employee || 'empty'}}</p>
                                         <p> Task: {{ task.name || "empty" }} </p>
                                     </li>
-                                        <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p> <button ng-click="stop(task); tasklist.$save(section)">Return the task</button>
+                                        <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p> <button ng-click="stop(task); tasklist.$save(section)" class="button light-button">Return the task</button>
                                 </ol>
                             </br>
                             </div>
