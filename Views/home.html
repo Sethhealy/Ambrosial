@@ -3,8 +3,8 @@
             </h3>
                <div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
                   <ul class="nav">
-                        <a href="#/signup" class="add employee" ng-if="user.usertype == 'admin'"> Add employee </a>
-                        <a href="#/user" class="usersign" ng-if="user.usertype == 'admin'"> Add user </a>
+                        <a href="#/signup" class="add employee" ng-if="user.usertype == 'admin'"> Add Employee </a>
+                        <a href="#/user" class="usersign" ng-if="user.usertype == 'admin'"> Add User </a>
 
                         <a href="#/" ng-click="authObj.$unauth()" class="employeesignout" ng-if="user.usertype != 'admin'"> Signout </a>
                         <a class="signout" href="#/" ng-if="user.usertype == 'admin'" ng-click="authObj.$unauth()"> Signout </a>
@@ -19,7 +19,7 @@
                     <a ng-href="http://maps.google.com?q={{taskLocation.location}}"><h4> {{ taskLocation.location }} </h4></a>
                 </div>
                 <hr></hr>
-                <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="button light-button">Add tasks</button>
+                <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="button light-button">Add Tasks</button>
             <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
 
                 <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="glyphicon bars-outside glyphicon-align-justify xxx" ng-hide="nav"></a>
@@ -47,9 +47,9 @@
                                 <div class= "employeelist">
                                 <a href="#" class="text capitalize" editable-text='task.employee' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.employee || "empty"}} </a>
                                 <div class="admintext">
-                                <a href="#" class="textname" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add task"}} </a>  </div>
+                                <a href="#" class="textname" editable-text='task.name' onaftersave="tasklist.$save(section)" maxlength="30"> {{ task.name || "Add Task"}} </a>  </div>
                                 <div class = "admindelete">
-                                      <a ng-click="section[$parent.$id] = null; tasklist.$save(section)"> X </a>
+                                      <i class="fa fa-minus minus" ng-click="section[$parent.$id] = null; tasklist.$save(section)"></i>
                                 </div>
                             </div>
                             </div>
@@ -64,7 +64,7 @@
 
                                       <button class="startbutton button red-button" ng-click="stop(task); tasklist.$save(section)" ng-hide="task.status != 'Taken'"> Stop </button>
 
-                                      <button class="button green-light-button completebutton" ng-disabled="$parent.task.status != 'Taken'" ng-click="complete(task); tasklist.$save(section)"> Complete </button>
+                                      <button class="button green-light-button completebutton" ng-disabled="$parent.task.status != 'Taken'" ng-click="complete(task); tasklist.$save(section)" ng-hide="task.status != 'Taken'"> Complete </button>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                                         <p> <b>Employee(s):</b> {{task.employee || 'empty'}}</p>
                                         <p> <b>Task:</b> {{ task.name || "empty" }} </p>
                                     </li>
-                                        <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p> <button ng-click="stop(task); tasklist.$save(section)" class="button light-button">Return the task</button>
+                                        <p class="time"> {{ task.time.start | date: 'shortTime'}} to {{ task.time.complete | date: 'shortTime'}} </p> <button ng-click="stop(task); tasklist.$save(section)" class="button light-button">Return the Task</button>
                                 </ol>
                             </br>
                             </div>
@@ -119,5 +119,5 @@
                     </accordion-group>
                 </accordion>
 
-                <footer><img src="images/logo-01.png" class="logo" alt=""> All Rights Reserved.</footer>
+                <footer><img src="images/logo-01.png" class="logo" alt=""> <div class="bottom"> All Rights Reserved.</div></footer>
 
