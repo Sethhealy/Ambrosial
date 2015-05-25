@@ -19,14 +19,14 @@
         Add Employee(s):
         <input class="add capitalize" ng-init="$element.focus()" maxlength="30" type="text" ng-model="task.employee" placeholder="Add Employees" required/>
         <div class="gap"></div>
-        <button type="submit" class="button light-button space btn-seth header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
+        <button type="submit" class="light-button blacktext space header-font" ng-disabled="taskForm.$invalid"><p>Enter</p>
         </button>
     </form>
     <form name="locationform" class="secondary-font inital" ng-submit="addLocation(task)">
         <h3>Add location</h3>
         <input class="add capitalize" maxlength="30" type="text" ng-model="task.location" placeholder="Add location"/>
           <div class="gap"></div>
-            <button type="submit" class="space btn-seth header-font" ng-disabled="locationform.$invalid"><p>Enter</p>
+            <button type="submit" class="light-button blacktext space" ng-disabled="locationform.$invalid"><p>Enter</p>
         </button>
     </form>
 </div>

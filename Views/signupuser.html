@@ -1,21 +1,21 @@
-<div class="container-fluid center">
+<div class="container-fluid heading center-align">
     <div class="row">
         <h1 class="header-font heading"> <a href="/#/home">Ambrosial</a> </h1>
             <h2 class="header-font">Sign Up A User</h2>
                 <!-- I gave the form a name so that I can target the form members to make sure they are all used. -->
                 <form name="signupform" class="secondary-font" ng-submit="signupUser()" novalidate>
                     <div class="form-group">
-                        <label for ="firstname">First Name</label>
+                        <label for ="firstname">First Name:</label>
                         <input type="username" name="name" ng-model="user.name" placeholder="First Name"
                         ng-required="true">
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
+                    <div class="form-group email">
+                        <label for="email">Email:</label>
                         <input type="email" name="email" ng-model="user.email" placeholder="Email"
                         ng-required="true">
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
+                    <div class="form-group password">
+                        <label for="password">Password:</label>
                         <input type="password" name="password" ng-model="user.password" placeholder="password"
                         ng-required="true">
                     </div>

@@ -19,7 +19,7 @@
                     <a ng-href="http://maps.google.com?q={{taskLocation.location}}"><h4> {{ taskLocation.location }} </h4></a>
                 </div>
                 <hr></hr>
-                <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="button light-button">Add Tasks</button>
+                <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="light-button">Add Tasks</button>
             <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
 
                 <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="glyphicon bars-outside glyphicon-align-justify xxx" ng-hide="nav"></a>
@@ -60,7 +60,7 @@
                                     <p class="textname"> {{ task.name || "empty" }} </p>
                                 </div>
                                     <div class = "right">
-                                      <button class="button light-button startbutton" name="update" ng-click="update(task); tasklist.$save(section)" ng-hide="task.status == 'Taken'"> Start </button>
+                                      <button class="light-button startbutton" name="update" ng-click="update(task); tasklist.$save(section)" ng-hide="task.status == 'Taken'"> Start </button>
 
                                       <button class="startbutton button red-button" ng-click="stop(task); tasklist.$save(section)" ng-hide="task.status != 'Taken'"> Stop </button>
 

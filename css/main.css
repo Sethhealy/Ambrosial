@@ -10,6 +10,7 @@ body{
     margin-top: 10px;
     width:100%;
 }
+
 hr{
     position: relative;
     bottom:20px;
@@ -66,44 +67,48 @@ hr{
     list-style-type: circle;
     position: relative;
 }
-    /* This targets all the buttons */
-.btn-seth{
-    background-color: grey;
-    width:100%;
-    color:black !important;
+.email{
+    margin-left: 33px;
 }
+.password{
+    margin-left: 9px;
+}
+    /* This targets all the buttons */
+
 .btn.disabled .btn-seth , .btn[disabled] .btn-seth{
     background-color: #9f089f !important;
     opacity: 0.6;
 }
 .priority{
-    width:30px;
-    height: 90px;
+    width:50px;
+    height: 50px;
     float:left;
     position: relative;
-    left:-20px;
+    left:-30px;
 }
 .red{
     background-image:  url("../images/highpriority.png");
     background-repeat: no-repeat;
     width:150px;
     height:80px;
-    margin-top:5px;
-    margin-left: 10px;
+    margin-top:10px;
+    margin-left: 20px;
 }
 .yellow{
     background-image:  url("../images/mediumpriority.png");
     background-repeat: no-repeat;
-    width:150px;
-    margin-top: 5px;
-    margin-left: 5px;
+    width:80px;
+    height: 80px;
+    margin-top: 10px;
+    margin-left: 30px;
 }
 .green{
     background-image:  url("../images/lowpriority.png");
     background-repeat: no-repeat;
     height:80px;
-    width:150px;
-    margin-top: 2px;
+    width:80px;
+    margin-top: 10px;
+    margin-left: 40px;
 }
 .text{
     position: absolute;
@@ -202,12 +207,6 @@ li{
     width:100%;
     position: relative;
     background-color: lightblue;
-}
-pre{
-    position: absolute;
-    left:50px;
-    top:0;
-    height: 25px;
 }
 .status{
     background-color: #9BDA8B;
@@ -370,7 +369,7 @@ a{
 }
 .username{
     position: relative;
-    bottom:35px;
+    bottom:36px;
 }
 .bottom{
     position: relative;
@@ -379,6 +378,9 @@ a{
 }
 /* Buttons */
 
+.formbutton{
+    margin-left: 75px;
+}
 .button,
 .button:hover {
   border-top:   none; /* fix for input button/submit element */
@@ -386,8 +388,6 @@ a{
   border-right: none; /* fix for input button/submit element */
   transition:   background          .3s linear,
                 border-bottom-color .3s linear;
-  position: relative;
-  bottom:8px;
 }
 a.button {
   display: inline-block;
@@ -427,7 +427,7 @@ a.button {
 }
 .green-light-button {
   text-shadow:         0 .1em 1px #7fa736;
-  background:          #7fd54b;
+  background:          #00FF00;
   border-bottom-color: #7fa736;
   box-shadow:          0 0 0 .04em #63812a;
 }
