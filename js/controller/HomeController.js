@@ -64,7 +64,7 @@ app.controller("HomeController",['$scope','$rootScope','$location','$firebaseAut
         console.log("data yo", task.location);
         // locationsync.$push($scope.task);
         // $scope.task = {};
-
+        $scope.editlocation = true;
     };
 
     // Here I'm making a function to update the status of the tasks so that other users can see what is being worked on.

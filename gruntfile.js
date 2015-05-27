@@ -18,6 +18,15 @@ module.exports = function (grunt) {
 			}
 		},
 
+	uglify: {
+      my_target:{
+      	files:{
+      		'js/script.js': ['js/**.js']
+      	}
+      }
+
+      },
+
 		watch: {
 			options: {
 				livereload: {port: 9000}

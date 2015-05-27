@@ -89,7 +89,6 @@ app.controller("LoginController",['$scope','$rootScope','$location','$firebaseAu
         }
 
     $scope.openForm = function(){
-        console.log("Fire");
         var modalInstance = $modal.open({
           templateUrl: 'Views/form.html',
           controller: 'HomeController',

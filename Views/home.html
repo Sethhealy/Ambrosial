@@ -8,7 +8,6 @@
 
                         <a href="#/" ng-click="authObj.$unauth()" class="employeesignout" ng-if="user.usertype != 'admin'"> Signout </a>
                         <a class="signout" href="#/" ng-if="user.usertype == 'admin'" ng-click="authObj.$unauth()"> Signout </a>
-
                   </ul>
                </div>
 
@@ -16,7 +15,7 @@
                 <h4 class="capitalize">  <a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}</a></h4>
                 </div>
                 <div class="capitalize title header-font" ng-if="user.usertype =='admin'">
-                    <a ng-href="http://maps.google.com?q={{taskLocation.location}}"><h4> {{ taskLocation.location }} </h4></a>
+                    <h4><a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}  </a><a ng-click="openForm()" ng-controller="LoginController"><i class="fa fa-pencil" ng-click="editlocation = false"></i></a></h4>
                 </div>
                 <hr></hr>
                 <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="light-button">Add Tasks</button>
