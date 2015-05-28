@@ -483,8 +483,22 @@ body {
 .container .text-muted {
   margin: 20px 0;
 }
+.push{
+    margin-top: 10px;
+}
+.banner{
+  background-color: #81D4FA;
+  height: 110px;
+  margin-top: -8%;
+  margin-left: -54%;
+  margin-right: -14%;
+}
+.signupbanner{
+    position: relative;
+    top:40px;
+    left:120px;
 
-
+}
 
 /* media queries */
 @media screen and (min-width: 600px) and (max-width: 1200px){
@@ -513,8 +527,38 @@ body {
   margin-left: 3%;
 }
 }
-
-
-
-
-
+@media screen and (min-width: 320px) and (max-width: 479px){
+.signupbanner{
+    position: relative;
+    top:40px;
+    left:90px;
+}
+}
+@media screen and (min-width: 480px) and (max-width: 599px){
+.signupbanner{
+    position: relative;
+    top:40px;
+    left:130px;
+}
+}
+@media screen and (min-width: 600px) and (max-width: 767px){
+.signupbanner{
+    position: relative;
+    top:40px;
+    left:160px;
+}
+}
+@media screen and (min-width: 800px){
+.signupbanner{
+    position: relative;
+    top:50px;
+    left:235px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+.signupbanner{
+    position: relative;
+    top:50px;
+    left:235px;
+}
+}

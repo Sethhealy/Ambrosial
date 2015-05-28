@@ -18,17 +18,17 @@ module.exports = function (grunt) {
 			}
 		},
 
-	// uglify: {
- //      my_target:{
- //      	files:{
- //      		'js/script.js': ['js/**/*.js']
- //      	},
- //      	options:{
- //      		mangle: false
- //      	}
- //      }
+	uglify: {
+      my_target:{
+      	files:{
+      		'js/script.js': ['js/**/*.js']
+      	},
+      	options:{
+      		mangle: false
+      	}
+      }
 
- //      },
+      },
 
 		watch: {
 			options: {

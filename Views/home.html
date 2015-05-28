@@ -20,7 +20,7 @@
                     <h4><a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}  </a><a ng-click="openForm()" ng-controller="LoginController"><i class="fa fa-pencil" ng-click="editlocation = false"></i></a></h4>
                 </div>
             </div>
-                <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="light-button">Add Tasks</button>
+                <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="light-button push">Add Tasks</button>
             <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
 
                 <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="glyphicon bars-outside glyphicon-align-justify xxx" ng-hide="nav"></a>
