@@ -1,3 +1,4 @@
+            <div class="topbanner">
             <h1 class="heading">Ambrosial</h1>
             <h3 class="username capitalize" ng-show="user">Welcome, {{user.firstname}}
             </h3>
@@ -10,14 +11,15 @@
                         <a class="signout" href="#/" ng-if="user.usertype == 'admin'" ng-click="authObj.$unauth()"> Signout </a>
                   </ul>
                </div>
-
+            </div>
+            <div class="locationbanner">
                 <div class="title header-font" ng-if="user.usertype =='employee'">
                 <h4 class="capitalize">  <a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}</a></h4>
                 </div>
                 <div class="capitalize title header-font" ng-if="user.usertype =='admin'">
                     <h4><a ng-href="http://maps.google.com?q={{taskLocation.location}}"> {{ taskLocation.location }}  </a><a ng-click="openForm()" ng-controller="LoginController"><i class="fa fa-pencil" ng-click="editlocation = false"></i></a></h4>
                 </div>
-                <hr></hr>
+            </div>
                 <button ng-controller="LoginController" ng-click="openForm()" ng-if="user.usertype == 'admin'" class="light-button">Add Tasks</button>
             <div ng-swipe-left="nav = true" ng-swipe-right="nav = false" class="navigation">
 
@@ -118,5 +120,5 @@
                     </accordion-group>
                 </accordion>
 
-                <footer><img src="images/logo-01.png" class="logo" alt=""> <div class="bottom"> All Rights Reserved.</div></footer>
+                <footer class="footer"><div class="container"><img src="images/logo-01.png" class="logo" alt=""> <div class="bottom"> All Rights Reserved.</div></div></footer>
 

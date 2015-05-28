@@ -18,14 +18,17 @@ module.exports = function (grunt) {
 			}
 		},
 
-	uglify: {
-      my_target:{
-      	files:{
-      		'js/script.js': ['js/**.js']
-      	}
-      }
+	// uglify: {
+ //      my_target:{
+ //      	files:{
+ //      		'js/script.js': ['js/**/*.js']
+ //      	},
+ //      	options:{
+ //      		mangle: false
+ //      	}
+ //      }
 
-      },
+ //      },
 
 		watch: {
 			options: {
@@ -46,7 +49,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-wiredep');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 
-	grunt.registerTask('serve', ['wiredep', 'connect','watch']);
+	grunt.registerTask('serve', ['wiredep','connect','uglify','watch']);
 };
