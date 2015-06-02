@@ -58,7 +58,7 @@
                                 <div class= "employeelist">
                                     <p class="text"> {{ task.employee || "empty" }} </p>
                                 <div class="admintext">
-                                    <p class="textname"> {{ task.name || "empty" }} </p>
+                                    <p class="textname item"> {{ task.name || "empty" }} </p>
                                 </div>
                                     <div class = "right">
                                       <button class="light-button startbutton" name="update" ng-click="update(task); tasklist.$save(section)" ng-hide="task.status == 'Taken'"> Start </button>
