@@ -509,7 +509,6 @@ body {
 .topbanner{
   background-color: #81D4FA;
   height: 110px;
-  margin-top: -3%;
   margin-left: -4%;
   margin-right: -4%;
 }
@@ -522,7 +521,7 @@ body {
 .topbanner{
   background-color: #81D4FA;
   height: 110px;
-  margin-top: -5%;
+  margin-top: -2%;
   margin-left: -4%;
   margin-right: -4%;
 }
